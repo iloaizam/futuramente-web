@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Futuramente — sitio de presentación del proyecto" />
+  <title>FuturaMente</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+  <!-- Drawer lateral (HOME) -->
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Evidencias en Territorio</h3>
+      <button class="icon-btn close" id="drawer-close" aria-label="Cerrar menú">×</button>
+    </div>
+
+    <nav class="drawer-nav">
+      <!-- van a la NUEVA página -->
+      <a href="evidencias/">Evidencias</a>
+      <a href="evidencias/#instituciones">Instituciones</a>
+      <a href="evidencias/#galeria">Galería</a>
+      <a href="evidencias/#territorios">Territorios</a>
+      <a href="evidencias/#diplomado">Diplomado</a>
+      <a href="evidencias/#semilleros">Semilleros</a>
+    </nav>
+  </aside>
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+
+  <!-- ⛔️ Quita el bloque del Lightbox en el HOME -->
+  <!-- (el Lightbox va solo en evidencias/index.html) -->
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-logo" aria-hidden="true"></span>
+      </a>
+
+      <nav class="menu" id="nav-menu">
+        <a href="#sobre">Sobre Nosotros</a>
+        <a href="#proposito">Propósito</a>
+        <a href="#roadmap">Etapas</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#aliados">Aliados</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <button class="icon-btn hamburger" id="drawer-open"
+              aria-label="Abrir menú lateral"
+              aria-controls="drawer"
+              aria-expanded="false">
+        <span></span>
+      </button>
+
+      <button class="btn btn-ghost mobile-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menú</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / INICIO (Slider) -->
+    <section id="inicio" class="hero hero-slider">
+      <div class="container">
+        <div class="slider" id="home-slider" data-slider aria-label="Banner destacado">
+          <!-- Flechas -->
+          <button class="slider-btn prev" aria-label="Anterior" data-prev>&#10094;</button>
+          <button class="slider-btn next" aria-label="Siguiente" data-next>&#10095;</button>
+        
+          <!-- Slides (todos VAN dentro de .slides) -->
+          <div class="slides" role="list">
+          
+            <!-- Slide 1: Sobre Nosotros  -->
+            <article class="slide is-active" id="slide-1" role="listitem" aria-roledescription="slide">
+              <img src="assets/img/hero-1.jpeg" alt="FuturaMente: docentes y estudiantes">
+              <div class="overlay">
+                <div class="overlay-inner">
+                  <span class="eyebrow">Sobre Nosotros</span>
+                  <h1>Formamos docentes, inspiramos futuros.</h1>
+                  <div class="cta-row">
+                    <a class="btn btn-primary" href="#sobre">Sobre Nosotros</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          
+            <!-- Slide 2: Propósito -->
+            <article class="slide" id="slide-2" role="listitem" aria-roledescription="slide">
+              <img src="assets/img/hero-2.jpeg" alt="Propósito y objetivos">
+              <div class="overlay">
+                <div class="overlay-inner">
+                  <span class="eyebrow">Propósito</span>
+                  <h1>Claros y medibles</h1>
+                  <p>Comunicación, seguimiento, vinculación y escalabilidad.</p>
+                  <div class="cta-row">
+                    <a class="btn btn-info" href="#proposito">Propósito</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          
+            <!-- Slide 3: Etapas -->
+            <article class="slide" id="slide-3" role="listitem" aria-roledescription="slide">
+              <img src="assets/img/hero-3.jpeg" alt="Etapas del proyecto">
+              <div class="overlay">
+                <div class="overlay-inner">
+                  <span class="eyebrow">Etapas</span>
+                  <h1>De formación a acción</h1>
+                  <p>Diplomado y semilleros de investigación en territorio.</p>
+                  <div class="cta-row">
+                    <a class="btn btn-blue" href="#roadmap">Ver Etapas</a>
+                    <a class="btn btn-ghost" href="#beneficios">Beneficios</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          
+            <!-- Slide 4: Contacto -->
+            <article class="slide" id="slide-4" role="listitem" aria-roledescription="slide">
+              <img src="assets/img/hero-4.jpeg" alt="Contacto FuturaMente">
+              <div class="overlay">
+                <div class="overlay-inner">
+                  <span class="eyebrow">Contacto</span>
+                  <h1>¿Hablamos?</h1>
+                  <p>Escríbenos o síguenos en redes para sumarte como aliado.</p>
+                  <div class="cta-row">
+                    <a class="btn btn-primary" href="mailto:comunicafut_man@unal.edu.co?subject=Consulta%20FuturaMente">Escribir correo</a>
+                    <a class="btn btn-secondary" href="#contacto">Ver detalles</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          
+          </div><!-- /.slides -->
+        
+          <!-- Dots -->
+          <div class="dots" role="tablist" aria-label="Seleccionar banner"></div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- SOBRE FUTURAMENTE -->
+    <section id="sobre">
+      <div class="container">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <!-- Mensaje principal debajo del título (sin tarjeta) -->
+        <div class="about-lead">
+          <span class="eyebrow">FUTURAMENTE – FORTALECIENDO VOCACIONES REGIONALES</span>
+          <h3>Formamos docentes, inspiramos futuros.</h3>
+          <p>
+            FuturaMente es un programa educativo que conecta a docentes y estudiantes con nuevas formas de aprender,
+            enseñar e investigar. Desde diferentes regiones de Colombia, trabajamos juntos para construir una educación
+            más innovadora, inclusiva y con impacto real en las comunidades.
+          </p>
+        </div>
+        <div class="grid cols-2">
+          <article class="card">
+            <h3 style="margin-top:0;">¿Qué es FuturaMente?</h3>
+            <p class="lead">
+              FuturaMente es un proyecto financiado por el Sistema General de Regalías que busca despertar vocaciones científicas
+              y fortalecer la educación básica y media con un enfoque territorial, cultural y productivo.
+            </p>
+            <p>
+              Nace para fortalecer la labor docente y sembrar en los estudiantes la semilla de la investigación y la innovación educativa.
+              A través de formación, acompañamiento y recursos, ayudamos a transformar la manera en que se vive la educación en Colombia.
+            </p>
+          </article>
+        
+          <aside class="card">
+            <h3 style="margin-top:0;">Dónde se impacta</h3>
+            <div class="chips">
+              <span class="chip">Amazonas</span>
+              <span class="chip">Arauca</span>
+              <span class="chip">Atlántico</span>
+              <span class="chip">Caldas</span>
+              <span class="chip">Cundinamarca</span>
+              <span class="chip">Tolima</span>
+              <span class="chip">Valle del Cauca</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proposito -->
+    <section id="proposito">
+      <div class="container">
+        <h2 class="section-title">Propósito</h2>
+        <!-- Propósito destacado -->
+        <div class="purpose purpose-outside card" id="propósito">
+          <h3 style="margin:0 0 6px;">Propósito</h3>
+          <p>
+            Impulsar el desarrollo de capacidades pedagógicas y de investigación que permitan a docentes y estudiantes
+            ser protagonistas en la construcción de un futuro educativo más sólido, creativo y sostenible.
+          </p>
+        </div>
+    </section>
+
+    
+    <!-- ETAPAS DEL PROYECTO -->
+    <section id="roadmap">
+      <div class="container">
+        <h2 class="section-title">Etapas del proyecto</h2>
+        <p class="section-sub">Así avanzamos de la formación a la acción en territorio.</p>
+      
+        <ol class="stages">
+          <!-- Etapa 1 -->
+          <li class="stage card">
+            <div class="stage-head">
+              <span class="stage-number">1</span>
+              <h3>Diplomado “Maestro de Maestros”</h3>
+            </div>
+            <p class="muted">
+              Un espacio de formación en el que docentes de todo el país se encuentran con nuevas metodologías y herramientas
+              para enriquecer su práctica educativa.
+            </p>
+            <ul class="stage-list">
+              <li>Más de 3 módulos desarrollados.</li>
+              <li>Oportunidades para compartir experiencias y aprender en comunidad.</li>
+            </ul>
+          </li>
+        
+          <!-- Etapa 2 -->
+          <li class="stage card">
+            <div class="stage-head">
+              <span class="stage-number">2</span>
+              <h3>Semilleros de investigación</h3>
+            </div>
+            <p class="muted">Después del diplomado, el conocimiento se transforma en acción.</p>
+            <ul class="stage-list">
+              <li>Creación de semilleros con docentes y estudiantes.</li>
+              <li>Acompañamiento metodológico especializado.</li>
+              <li><span class="chip money">Capital semilla: COP $500.000 por iniciativa</span></li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
+    <!-- BENEFICIOS -->
+    <section id="beneficios">
+      <div class="container">
+        <h2 class="section-title">Beneficios de participar</h2>
+        <p class="section-sub">Al ser parte de FuturaMente, las instituciones, docentes y estudiantes reciben:</p>
+      
+        <div class="card">
+          <ul class="benefit-list">
+            <li><span class="tick" aria-hidden="true">✓</span>
+              <div><strong>Formación actualizada</strong> en metodologías innovadoras.</div>
+            </li>
+            <li><span class="tick" aria-hidden="true">✓</span>
+              <div>Asesoría de un equipo de expertos en educación e investigación.</div>
+            </li>
+            <li><span class="tick" aria-hidden="true">✓</span>
+              <div>Recursos económicos para llevar a cabo proyectos propios.</div>
+            </li>
+            <li><span class="tick" aria-hidden="true">✓</span>
+              <div>Conexiones con experiencias educativas nacionales e internacionales.</div>
+            </li>
+            <li><span class="tick" aria-hidden="true">✓</span>
+              <div>Un espacio para compartir, crecer y dejar huella en la comunidad educativa.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALIADOS -->
+      <section id="aliados">
+        <div class="container">
+          <h2 class="section-title">Aliados</h2>
+          <p class="section-sub">
+            FuturaMente es posible gracias al trabajo conjunto de universidades, instituciones educativas, 
+            entidades gubernamentales y aliados estratégicos que creen en el poder de la educación para 
+            cambiar realidades.
+          </p>
+        
+          <!-- Texto en tarjeta (opcional) -->
+          <div class="card">
+            <p class="muted" style="margin:0;">
+              Este ecosistema de colaboración impulsa iniciativas de formación, investigación y acompañamiento 
+              en territorio, conectando experiencias, saberes y recursos para generar impacto real.
+            </p>
+          </div>
+        
+          <!-- (Opcional) parrilla de logos: quita los comentarios si ya tienes imágenes -->
+          
+          <ul class="logos">
+            <li><img src="assets/img/aliado-1.png" alt="universidad nacioanl de Colombia"></li>
+            <li><img src="assets/img/aliado-2.png" alt="SGR"></li>
+          </ul>
+        </div>
+      </section>
+
+
+    
+      <!-- CONTACTO -->
+      <section id="contacto">
+        <div class="container">
+          <h2 class="section-title">Contacto</h2>
+          <p class="section-sub">
+            ¿Quieres saber más sobre el programa, sumarte o colaborar como aliado?
+          </p>
+        
+          <div class="card contact-card">
+            <p class="muted" style="margin:0 0 10px;">
+              📩 Correo del proyecto:
+              <a class="contact-mail"
+                 href="mailto:comunicafut_man@unal.edu.co?subject=Consulta%20sobre%20FuturaMente&body=Hola%2C%20quisiera%20saber%20m%C3%A1s%20sobre%20FuturaMente..."
+                 >comunicafut_man@unal.edu.co</a>
+            </p>
+          
+            <div class="social-wrap">
+              <span class="muted">🌐 Redes sociales:</span>
+              <div class="social-links">
+                <a class="btn btn-fb" href="https://www.facebook.com/people/Proyecto-FuturaMente/61553607898327/?mibextid=tPfjzR"
+                   target="_blank" rel="noopener">Facebook</a>
+              
+                <a class="btn btn-ig" href="https://www.instagram.com/proyecto_futuramente/?igsh=cmUyYzZ2bjk2aDgy"
+                   target="_blank" rel="noopener">Instagram</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+      <span>© <span id="y"></span> FuturaMente</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

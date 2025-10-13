@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FuturaMente — Evidencias en territorio" />
+  <title>FuturaMente · Evidencias</title>
+  <!-- Rutas relativas desde /evidencias/ -->
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<!-- Drawer lateral (abre a la derecha) -->
+<aside id="drawer" class="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <h3>Evidencias en Territorio</h3>
+    <button class="icon-btn close" id="drawer-close" aria-label="Cerrar menú">×</button>
+  </div>
+
+  <nav class="drawer-nav">
+    <a href="#instituciones">Instituciones</a>
+    <a href="#galeria">Galería</a>
+    <a href="../index.html#sobre">Sobre Nosotros</a>
+    <a href="../index.html#proposito">Propósito</a>
+    <a href="../index.html#roadmap">Etapas</a>
+    <a href="../index.html#beneficios">Beneficios</a>
+    <a href="../index.html#aliados">Aliados</a>
+    <a href="../index.html#contacto">Contacto</a>
+  </nav>
+</aside>
+<div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <button class="lb-btn lb-close" aria-label="Cerrar">×</button>
+  <button class="lb-btn lb-prev"  aria-label="Anterior">‹</button>
+  <img class="lb-image" alt="">
+  <div class="lb-caption"></div>
+  <button class="lb-btn lb-next"  aria-label="Siguiente">›</button>
+</div>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="../index.html#inicio" aria-label="Ir al inicio">
+        <span class="brand-logo" aria-hidden="true"></span>
+      </a>
+
+      <nav class="menu" id="nav-menu">
+        <a href="../index.html#sobre">Sobre Nosotros</a>
+        <a href="../index.html#proposito">Propósito</a>
+        <a href="../index.html#roadmap">Etapas</a>
+        <a href="../index.html#beneficios">Beneficios</a>
+        <a href="../index.html#aliados">Aliados</a>
+        <a href="../index.html#contacto">Contacto</a>
+        <a href="./">Evidencias</a>
+      </nav>
+
+      <button class="icon-btn hamburger" id="drawer-open"
+              aria-label="Abrir menú lateral"
+              aria-controls="drawer"
+              aria-expanded="false">
+        <span></span>
+      </button>
+
+      <button class="btn btn-ghost mobile-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menú</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- INSTITUCIONES -->
+    <section id="instituciones">
+      <div class="container">
+        <h2 class="section-title">Instituciones</h2>
+        <p class="section-sub">Explora evidencias por institución.</p>
+
+        <div class="inst-grid">
+          <!-- Con logo: agrega cover.jpg si lo tienes -->
+          <a class="inst-card" href="#galeria" data-name="IE Eduardo Gómez Arrubla">
+            <div class="inst-cover"></div>
+            <div class="inst-info">
+              <h3>IE Eduardo Gómez Arrubla</h3>
+              <span class="inst-tag">Ver evidencias</span>
+            </div>
+          </a>
+
+          <!-- Sin logo: se generan iniciales automáticamente -->
+          <a class="inst-card" href="#galeria" data-name="IE El Trébol">
+            <div class="inst-cover"></div>
+            <div class="inst-info">
+              <h3>IE El Trébol</h3>
+              <span class="inst-tag">Ver evidencias</span>
+            </div>
+          </a>
+
+          <a class="inst-card" href="#galeria" data-name="IE Normal de Caldas">
+            <div class="inst-cover"></div>
+            <div class="inst-info">
+              <h3>IE Normal de Caldas</h3>
+              <span class="inst-tag">Ver evidencias</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA (ejemplo con IE Eduardo Gómez Arrubla) -->
+    <section id="galeria">
+      <div class="container">
+        <h2 class="section-title">Galería de evidencias</h2>
+        <p class="section-sub">IE Eduardo Gómez Arrubla</p>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img
+              src="../evidencias/instituciones/ie-eduardo-gomez-arrubla/gza-01.jpeg"
+              data-full="../evidencias/instituciones/ie-eduardo-gomez-arrubla/gza-01.jpeg"
+              alt="Actividad con estudiantes — IE Eduardo Gómez Arrubla"
+              loading="lazy">
+            <figcaption>IE Eduardo Gómez Arrubla — Taller con docentes</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="../evidencias/instituciones/ie-eduardo-gomez-arrubla/gza-02.jpeg"
+              data-full="../evidencias/instituciones/ie-eduardo-gomez-arrubla/gza-02.jpeg"
+              alt="Actividad con estudiantes — IE Eduardo Gómez Arrubla"
+              loading="lazy">
+            <figcaption>Actividad con estudiantes</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="../evidencias/instituciones/ie-eduardo-gomez-arrubla/gza-03.jpeg"
+              data-full="../evidencias/instituciones/ie-eduardo-gomez-arrubla/gza-03.jpeg"
+              alt="Actividad con estudiantes — IE Eduardo Gómez Arrubla"
+              loading="lazy">
+            <figcaption>Actividad con estudiantes</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="../evidencias/instituciones/ie-eduardo-gomez-arrubla/gza-04.jpeg"
+              data-full="../evidencias/instituciones/ie-eduardo-gomez-arrubla/gza-04.jpeg"
+              alt="Actividad con estudiantes — IE Eduardo Gómez Arrubla"
+              loading="lazy">
+            <figcaption>Actividad con estudiantes</figcaption>
+          </figure>
+
+          <!-- Duplica más <figure> cambiando rutas/alt/figcaption -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+      <span>© <span id="y"></span> FuturaMente</span>
+    </div>
+  </footer>
+
+  <!-- Rutas JS relativas -->
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
