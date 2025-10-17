@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Departamentos | FuturaMente</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+
+<body>
+  <!-- Drawer lateral -->
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Menú</h3>
+      <button class="icon-btn close" id="drawer-close" aria-label="Cerrar">×</button>
+    </div>
+  
+    <nav class="drawer-nav">
+      <div class="drawer-group">
+        <div class="drawer-group-title">Inicio</div>
+        <a href="../../index.html#sobre">Sobre Nosotros</a>
+        <a href="../../index.html#proposito">Propósito</a>
+        <a href="../../index.html#roadmap">Etapas</a>
+        <a href="../../index.html#beneficios">Beneficios</a>
+        <a href="../../index.html#aliados">Aliados</a>
+        <a href="../../index.html#contacto">Contacto</a>
+      </div>
+  
+      <div class="drawer-group">
+        <div class="drawer-group-title">Departamentos</div>
+        <a href="index.html">Ver departamentos</a>
+      </div>
+    </nav>
+  </aside>
+  
+  <!-- Fondo para cerrar -->
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="../../index.html" aria-label="Volver al inicio">
+        <span class="brand-logo" aria-hidden="true"></span>
+      </a>
+      <button class="icon-btn hamburger" id="drawer-open"
+              aria-label="Abrir menú lateral"
+              aria-controls="drawer" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title">Departamentos</h1>
+        <p class="section-sub">Explora las evidencias por territorio.</p>
+
+        <!-- Grid de tarjetas (reutiliza el estilo de Instituciones) -->
+        <div class="inst-grid">
+          <a class="inst-card" href="amazonas.html">
+            <div class="inst-cover" style="background-image:url('../../assets/img/cover-amazonas.jpg')"></div>
+            <div class="inst-info">
+              <h3>Amazonas</h3><span class="inst-tag">Ver</span>
+            </div>
+          </a>
+
+          <a class="inst-card" href="arauca.html">
+            <div class="inst-cover" style="background-image:url('../../assets/img/cover-arauca.jpg')"></div>
+            <div class="inst-info">
+              <h3>Arauca</h3><span class="inst-tag">Ver</span>
+            </div>
+          </a>
+
+          <a class="inst-card" href="atlantico.html">
+            <div class="inst-cover" style="background-image:url('../../assets/img/cover-atlantico.avif')"></div>
+            <div class="inst-info">
+              <h3>Atlántico</h3><span class="inst-tag">Ver</span>
+            </div>
+          </a>
+
+          <a class="inst-card" href="caldas.html">
+            <div class="inst-cover" style="background-image:url('../../assets/img/cover-caldas.avif')"></div>
+            <div class="inst-info">
+              <h3>Caldas</h3><span class="inst-tag">Ver</span>
+            </div>
+          </a>
+
+          <a class="inst-card" href="cundinamarca.html">
+            <div class="inst-cover" style="background-image:url('../../assets/img/cover-cundinamarca.jpg')"></div>
+            <div class="inst-info">
+              <h3>Cundinamarca</h3><span class="inst-tag">Ver</span>
+            </div>
+          </a>
+
+          <a class="inst-card" href="tolima.html">
+            <div class="inst-cover" style="background-image:url('../../assets/img/cover-tolima.jpg')"></div>
+            <div class="inst-info">
+              <h3>Tolima</h3><span class="inst-tag">Ver</span>
+            </div>
+          </a>
+
+          <a class="inst-card" href="valle-del-cauca.html">
+            <div class="inst-cover" style="background-image:url('../../assets/img/cover-valle.webp')"></div>
+            <div class="inst-info">
+              <h3>Valle del Cauca</h3><span class="inst-tag">Ver</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../assets/js/main.js" defer></script>
+</body>
+</html>

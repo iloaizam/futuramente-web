@@ -1,28 +1,25 @@
 :root{
-  /* Marca */
-  --brand:#ec058e;    /* fucsia */
-  --brand-2:#98198e;  /* violeta */
+  /* Fondo claro */
+  --bg: #ffffff;             /* fondo principal */
+  --surface: #ffffff;        /* tarjetas/sections */
+  --text: #0b0f14;           /* texto principal */
+  --muted: #516171;          /* texto secundario */
 
-  /* Acentos */
-  --accent-1:#4ed5db; /* aguamarina claro */
-  --accent-2:#51b59f; /* aguamarina oscuro */
+  /* Marca (tus colores) */
+  --brand: #ec058e;          /* fucsia */
+  --brand-2: #4ed5db;        /* aguamarina claro */
+  --ok: #51b59f;             /* verde agua */
+  --warn: #fbbf24;           /* amarillo */
+  --danger: #ef7171;         /* rojo */
+  --blue: #3871c1;           /* azul */
 
-  /* Estados */
-  --ok:#85c536;       /* verde */
-  --warn:#ffbd59;     /* amarillo (temporal; cámbialo si tienes uno del logo) */
-  --info:var(--accent-1);
-
-  /* Base (tema oscuro) */
-  --bg:#0b0f14;       /* negro suave (menos agresivo que #000) */
-  --surface:#121923;
-  --text:#e8edf2;
-  --muted:#a8b3c2;
-
-  --radius:16px;
-  --shadow:0 10px 30px rgba(0,0,0,.35);
-  --container:1360px;
-  --blue:#3871c1;   /*azul */
+  /* UI */
+  --radius: 16px;
+  --border: #e5eaf0;         /* bordes suaves */
+  --shadow: 0 10px 30px rgba(17,24,39,.08);
+  --container: 1280px;
 }
+
 
 
 /* Reset mínimo y tipografía */
@@ -285,11 +282,15 @@ footer{ padding:40px 0; border-top:1px solid #1b2533; color:var(--muted); }
 
 /* Chip de dinero usando tu verde */
 .chip.money{
-  display:inline-block; padding:.35rem .6rem; border-radius:999px;
-  background: color-mix(in oklab, var(--ok) 28%, #0e1520);
-  border:1px solid color-mix(in oklab, var(--ok) 55%, #0b0f14);
-  color:#0b0f14; font-weight:700;
+  display:inline-block; padding:.45rem .9rem; border-radius:999px;
+  /* fondo pastel basado en tu --ok */
+  background: color-mix(in oklab, var(--ok) 18%, #ffffff);
+  /* borde suave en el mismo tono */
+  border: 1px solid color-mix(in oklab, var(--ok) 55%, #ffffff);
+  color:#0b0f14; font-weight:800;
+  box-shadow: 0 2px 8px rgba(17,24,39,.05);
 }
+
 /* Quitar numeración externa del <ol> de etapas */
 .stages{
   list-style: none;      /* sin números */
@@ -344,7 +345,7 @@ footer{ padding:40px 0; border-top:1px solid #1b2533; color:var(--muted); }
 }
 
 .logos img{
-  max-height:56px; width:auto; object-fit:contain;
+  max-height:100px; width:auto; object-fit:contain;
   opacity:1;
   filter:none !important;       /* <-- quita el gris/inversión sí o sí */
   transition: transform .15s ease;
@@ -564,3 +565,115 @@ header .icon-btn.hamburger{ margin-left: 8px; }
   top: 18px; right: 18px; transform:none; font-size:28px; width:42px; height:42px;
 }
 .gallery-item img{ cursor: zoom-in; }
+
+/* === LIGHT THEME OVERRIDES (pegar al final) =================== */
+
+/* Alias para que todo lo que use --accent-1 funcione */
+:root{ --accent-1: var(--brand-2); }
+
+/* Header / nav en claro */
+header{ background:#fff; border-bottom:1px solid var(--border); }
+.nav .menu a{ color:#334155; }
+.nav .menu a:hover{ background:#eef2f7; color:#0b0f14; }
+
+/* Botones */
+.btn-ghost{ border-color:var(--border); background:#fff; }
+.btn-ghost:hover{ background:#f5f7fb; }
+.btn-info{ background:linear-gradient(135deg,var(--blue),var(--accent-1)); color:#0b0f14; border:1px solid rgba(0,0,0,.12); }
+.btn-secondary{ color:var(--accent-1); border:1px solid var(--border); }
+
+/* Icono hamburguesa en claro */
+.icon-btn{ background:#fff; color:#0b0f14; border:1px solid var(--border); }
+.hamburger span,
+.hamburger span::before,
+.hamburger span::after{ background:#0b0f14; }
+
+/* Drawer claro (abre a la derecha en tu CSS) */
+.drawer{ background:#fff; border-left:1px solid var(--border); box-shadow:var(--shadow); }
+.drawer-head{ border-bottom:1px solid var(--border); }
+.drawer-nav a{ color:#0b0f14; }
+.drawer-nav a:hover{ background:#eef2f7; border-color:var(--border); }
+
+/* Tarjetas/paneles */
+.card, .inst-card, .gallery-item, .section-panel, .box, .logos li{
+  background:#fff; border:1px solid var(--border); box-shadow:var(--shadow);
+}
+
+/* Chips/etiquetas */
+.chip{ 
+  background: color-mix(in oklab, var(--brand-2) 15%, #fff);
+  border:1px solid var(--border);
+  color:#0b0f14;
+}
+
+/* Purpose/timeline/beneficios */
+.purpose{ background:#f8fafc; border:1px solid var(--border); }
+.timeline::before{ background:var(--border); }
+.tl-item::before{ box-shadow:0 0 0 3px #fff; }
+.benefit-list li{
+  background:#fff; border:1px solid var(--border);
+}
+
+/* Footer claro */
+footer{ border-top:1px solid var(--border); color:#516171; }
+
+/* Slider en claro (bordes y controles) */
+.slider{ border:1px solid var(--border); background:#f6f8fb; }
+.slider-btn{ background:#fff; color:#0b0f14; border:1px solid var(--border); }
+.dots button{ border-color:#cfd8e3; background:#e9eef5; }
+.dots button[aria-selected="true"]{
+  background:var(--brand);
+  border-color: color-mix(in oklab, var(--brand) 65%, #000 35%);
+}
+
+/* Texto del hero: por defecto blanco (sobre foto oscura) */
+.hero .overlay h1,
+.hero .overlay p{ color:#fff; }
+
+/* Chips de Departamentos */
+.chip.dept{
+  cursor: pointer;
+  background: color-mix(in oklab, var(--accent-1) 14%, #fff);
+  border: 1px solid var(--border);
+  font-weight: 700;
+}
+.chip.dept:hover{
+  background: color-mix(in oklab, var(--accent-1) 22%, #fff);
+}
+
+/* Drawer: fila título + caret */
+.drawer-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: .4rem 0 .2rem;
+}
+.drawer-link{ font-weight:700; }
+
+/* Botón caret y giro al abrir */
+.drawer-caret{
+  border:1px solid var(--border); background:#fff; color:#0b0f14;
+  width:32px; height:32px; border-radius:10px; cursor:pointer;
+  transition: transform .18s ease;
+}
+.drawer-caret[aria-expanded="true"]{ transform: rotate(180deg); }
+
+/* Chips de departamentos */
+.chip.dept{
+  cursor:pointer; font-weight:700;
+  background: color-mix(in oklab, var(--accent-1) 14%, #fff);
+  border:1px solid var(--border);
+}
+.chip.dept:hover{
+  background: color-mix(in oklab, var(--accent-1) 22%, #fff);
+}
+
+/* Grupos dentro del drawer */
+.drawer-group{ display:grid; gap:6px; padding:10px 14px; }
+.drawer-group + .drawer-group{ border-top:1px solid var(--border); margin-top:6px; }
+.drawer-group-title{
+  font-weight:800; color:#0b0f14; opacity:.7;
+  text-transform:uppercase; letter-spacing:.4px;
+  font-size:.78rem; margin:4px 0 6px;
+}
+
+/* Oculta el menú superior si quedara algún <nav class="menu"> */
+.page-no-topnav .menu{ display:none !important; }

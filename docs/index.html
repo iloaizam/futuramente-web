@@ -18,13 +18,26 @@
     </div>
 
     <nav class="drawer-nav">
-      <!-- van a la NUEVA página -->
-      <a href="evidencias/index.html">Evidencias</a>
-      <a href="evidencias/index.html#instituciones">Instituciones</a>
-      <a href="evidencias/index.html#galeria">Galería</a>
-      <a href="evidencias/index.html#territorios">Territorios</a>
-      <a href="evidencias/index.html#diplomado">Diplomado</a>
-      <a href="evidencias/index.html#semilleros">Semilleros</a>
+      <div class="drawer-row">
+        <a class="drawer-link" href="evidencias/departamentos/index.html">Departamentos</a>
+        <button class="drawer-caret" type="button"
+                data-accordion="dept"
+                aria-expanded="false"
+                aria-controls="submenu-dept">▾</button>
+      </div>
+    
+      <div class="drawer-sub" id="submenu-dept" hidden>
+        <div class="chips">
+          <a class="chip dept" href="evidencias/departamentos/amazonas.html">Amazonas</a>
+          <a class="chip dept" href="evidencias/departamentos/arauca.html">Arauca</a>
+          <a class="chip dept" href="evidencias/departamentos/atlantico.html">Atlántico</a>
+          <a class="chip dept" href="evidencias/departamentos/caldas.html">Caldas</a>
+          <a class="chip dept" href="evidencias/departamentos/cundinamarca.html">Cundinamarca</a>
+          <a class="chip dept" href="evidencias/departamentos/tolima.html">Tolima</a>
+          <a class="chip dept" href="evidencias/departamentos/valle-del-cauca.html">Valle del Cauca</a>
+          <a class="chip" href="evidencias/departamentos/index.html">Ver todos</a>
+        </div>
+      </div>
     </nav>
   </aside>
   <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
@@ -292,6 +305,7 @@
           <ul class="logos">
             <li><img src="assets/img/aliado-1.png" alt="universidad nacioanl de Colombia"></li>
             <li><img src="assets/img/aliado-2.png" alt="SGR"></li>
+            <li><img src="assets/img/aliado-3.png" alt="universidad americana "></li>
           </ul>
         </div>
       </section>

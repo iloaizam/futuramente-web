@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evidencias – Arauca | FuturaMente</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Drawer lateral (FUERA del header) -->
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Menú</h3>
+      <button class="icon-btn close" id="drawer-close" aria-label="Cerrar">×</button>
+    </div>
+
+    <nav class="drawer-nav">
+      <div class="drawer-group">
+        <div class="drawer-group-title">Inicio</div>
+        <a href="../../index.html#sobre">Sobre Nosotros</a>
+        <a href="../../index.html#proposito">Propósito</a>
+        <a href="../../index.html#roadmap">Etapas</a>
+        <a href="../../index.html#beneficios">Beneficios</a>
+        <a href="../../index.html#aliados">Aliados</a>
+        <a href="../../index.html#contacto">Contacto</a>
+      </div>
+
+      <div class="drawer-group">
+        <div class="drawer-group-title">Departamentos</div>
+        <a href="index.html">Ver departamentos</a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Fondo para cerrar -->
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+
+  <!-- ÚNICO header -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="../../index.html" aria-label="Volver al inicio">
+        <span class="brand-logo" aria-hidden="true"></span>
+      </a>
+      <button class="icon-btn hamburger" id="drawer-open"
+              aria-label="Abrir menú lateral"
+              aria-controls="drawer" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title">Arauca</h1>
+        <p class="section-sub">Evidencias y registros del departamento.</p>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="../../assets/evidencias/arauca/ejemplo-01.jpg" alt="Actividad en Arauca">
+            <figcaption>Actividad con docentes – Arauca</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../assets/js/main.js" defer></script>
+  <!-- Fallback por si main.js no carga -->
+  <script>
+  (() => {
+    const d = document, drawer=d.getElementById('drawer');
+    const openBtn=d.getElementById('drawer-open'), closeBtn=d.getElementById('drawer-close');
+    const backdrop=d.getElementById('drawer-backdrop');
+    if(!(drawer&&openBtn&&closeBtn&&backdrop)) return;
+    const open=()=>{drawer.setAttribute('aria-hidden','false'); backdrop.hidden=false; d.body.style.overflow='hidden';};
+    const close=()=>{drawer.setAttribute('aria-hidden','true');  backdrop.hidden=true;  d.body.style.overflow='';};
+    openBtn.addEventListener('click',open); closeBtn.addEventListener('click',close); backdrop.addEventListener('click',close);
+  })();
+  </script>
+</body>
+</html>

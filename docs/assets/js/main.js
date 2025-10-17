@@ -1,5 +1,7 @@
-// Año automático en el footer
-document.getElementById('y').textContent = new Date().getFullYear();
+// Año automático en el footer (solo si existe #y)
+const yEl = document.getElementById('y');
+if (yEl) yEl.textContent = new Date().getFullYear();
+
 
 // Menú móvil accesible
 const toggle = document.getElementById('nav-toggle');
@@ -190,5 +192,18 @@ menu?.querySelectorAll('a').forEach(a =>
     if(e.key === 'Escape') close();
     if(e.key === 'ArrowRight') next();
     if(e.key === 'ArrowLeft') prev();
+  });
+})();
+
+// Drawer: acordeón de Departamentos (HOME)
+(() => {
+  const caret = document.querySelector('[data-accordion="dept"]');
+  const sub   = document.getElementById('submenu-dept');
+  if (!caret || !sub) return;
+  caret.addEventListener('click', () => {
+    const open = caret.getAttribute('aria-expanded') === 'true';
+    caret.setAttribute('aria-expanded', String(!open));
+    if (open) sub.setAttribute('hidden','');
+    else sub.removeAttribute('hidden');
   });
 })();
