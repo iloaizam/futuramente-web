@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tableros | FuturaMente</title>
+
+  <!-- Ruta relativa correcta desde docs/evidencias/tableros/ -->
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+
+  <style>
+    .pbi-wrap{
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 220px);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+    .pbi-wrap iframe{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Drawer lateral -->
+  <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Menú</h3>
+      <button class="icon-btn close" id="drawer-close" aria-label="Cerrar">×</button>
+    </div>
+
+    <nav class="drawer-nav">
+      <div class="drawer-group">
+        <div class="drawer-group-title">Inicio</div>
+        <a href="../../index.html#sobre">Sobre Nosotros</a>
+        <a href="../../index.html#proposito">Propósito</a>
+        <a href="../../index.html#roadmap">Etapas</a>
+        <a href="../../index.html#beneficios">Beneficios</a>
+        <a href="../../index.html#aliados">Aliados</a>
+        <a href="../../index.html#contacto">Contacto</a>
+      </div>
+
+      <div class="drawer-group">
+        <div class="drawer-group-title">Evidencias</div>
+        <a href="index.html" aria-current="page">Tableros</a>
+        <a href="../departamentos/index.html">Departamentos</a>
+      </div>
+    </nav>
+  </aside>
+
+  <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="../../index.html" aria-label="Volver al inicio">
+        <span class="brand-logo" aria-hidden="true"></span>
+      </a>
+
+      <button class="icon-btn hamburger" id="drawer-open"
+              aria-label="Abrir menú lateral"
+              aria-controls="drawer" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title">Tableros</h1>
+        <p class="section-sub">Visualiza el tablero interactivo del proyecto.</p>
+
+        <div class="pbi-wrap">
+          <iframe
+            title="Tablero Futuramente"
+            src="https://app.powerbi.com/view?r=eyJrIjoiM2YyMWExOTQtMjc2NC00ODNkLTgwMzctYjE2MzhlNDM0OTM5IiwidCI6IjU3N2ZjMWQ4LTA5MjItNDU4ZS04N2JmLWVjNGY0NTVlYjYwMCIsImMiOjR9"
+            allowfullscreen="true"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Ruta relativa correcta -->
+  <script src="../../assets/js/main.js" defer></script>
+</body>
+</html>
