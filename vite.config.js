@@ -1,7 +1,12 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
 
 export default defineConfig({
-  // Para GitHub Pages es común necesitar base: '/NOMBRE_REPO/'
-  // Si usas HashRouter, normalmente puede quedar '/' y no falla.
-  base: './'
-});
+  plugins: [react()],
+  base: "/futuramente-web/",
+  build: {
+    outDir: "docs",
+    emptyOutDir: true
+  }
+})
+

@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getDepartamento } from '../data/departamentos.js';
 import { motion, AnimatePresence } from 'framer-motion';
+import { asset } from '../utils/assets.js';
 
 function Lightbox({ open, onClose, items, index, setIndex }) {
   const item = items[index];
@@ -15,12 +16,23 @@ function Lightbox({ open, onClose, items, index, setIndex }) {
       <button className="lb-btn lb-close" type="button" aria-label="Cerrar" onClick={onClose}>
         ×
       </button>
+
       {items.length > 1 ? (
         <>
-          <button className="lb-btn lb-prev" type="button" aria-label="Anterior" onClick={(e) => (e.stopPropagation(), prev())}>
+          <button
+            className="lb-btn lb-prev"
+            type="button"
+            aria-label="Anterior"
+            onClick={(e) => (e.stopPropagation(), prev())}
+          >
             ‹
           </button>
-          <button className="lb-btn lb-next" type="button" aria-label="Siguiente" onClick={(e) => (e.stopPropagation(), next())}>
+          <button
+            className="lb-btn lb-next"
+            type="button"
+            aria-label="Siguiente"
+            onClick={(e) => (e.stopPropagation(), next())}
+          >
             ›
           </button>
         </>
@@ -98,17 +110,10 @@ export default function DepartamentoDetail() {
               onClick={() => openAt(idx)}
               aria-label={ev.caption || 'Ver imagen'}
             >
-              <img src={ev.src} alt={ev.caption || 'Evidencia'} />
+              <img src={asset(ev.src)} alt={ev.caption || 'Evidencia'} />
               <div className="gallery-caption">{ev.caption}</div>
             </button>
           ))}
-        </div>
-
-        <div className="hint card" style={{ marginTop: 18 }}>
-          <p className="muted" style={{ margin: 0 }}>
-            Si ves imágenes rotas, es porque aún no has copiado las fotos reales a <code>public/assets/evidencias/{dept.slug}</code>.
-            Cuando las pongas ahí con los mismos nombres, se verán automáticamente.
-          </p>
         </div>
       </div>
 

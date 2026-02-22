@@ -53,7 +53,11 @@ export default function SiteLayout() {
             aria-label="Ir al inicio"
             type="button"
           >
-            <span className="brand-logo" aria-hidden="true" />
+            <img
+              className="brand-logo"
+              src={`${import.meta.env.BASE_URL}assets/img/logo.png`}
+              alt="FuturaMente"
+            />
           </button>
 
           <nav className="menu" aria-label="Navegación principal">

@@ -2,7 +2,7 @@ export const departamentos = [
   {
     slug: 'amazonas',
     nombre: 'Amazonas',
-    cover: '/assets/img/cover-amazonas.jpg',
+    cover: 'public/assets/img/cover-amazonas.jpg',
     // Puedes reemplazar esto por tus imágenes reales cuando las tengas.
     evidencias: [
       { src: '/assets/evidencias/amazonas/ejemplo-01.jpg', caption: 'Actividad con docentes – Amazonas' }

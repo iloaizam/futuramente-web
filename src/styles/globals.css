@@ -1,4 +1,8 @@
 :root{
+  --base: "/";
+}
+
+:root{
   /* Base */
   --bg: #ffffff;
   --surface: #ffffff;
@@ -130,7 +134,8 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 .brand-logo{
   width: 180px;
   height: 46px;
-  background: url('/assets/img/logo.png') center/contain no-repeat;
+  display: block;
+  object-fit: contain;  
 }
 
 .menu{ display:flex; gap:.35rem; align-items:center; }
