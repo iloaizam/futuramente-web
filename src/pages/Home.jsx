@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { departamentos } from '../data/departamentos.js';
 import { asset } from '../utils/assets.js';
 import { useInViewOnce } from '../hooks/useInViewOnce.js';
+import InteractiveMap from "../components/InteractiveMap.jsx";
+
 
 const slides = [
   {
@@ -49,6 +51,8 @@ const slides = [
     ]
   }
 ];
+
+
 
 function scrollToId(id) {
   const el = document.getElementById(id);
@@ -175,7 +179,11 @@ export default function Home() {
   return (
     <>
       <HeroSlider />
-
+      <section className="section">
+        <div className="container">
+          <InteractiveMap />
+        </div>
+      </section>
       <section id="sobre" className="section">
         <div className="container">
           <Reveal>
