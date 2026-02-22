@@ -10,7 +10,7 @@ const slides = [
     id: 'sobre',
     eyebrow: 'Sobre Nosotros',
     title: 'Formamos docentes, inspiramos futuros.',
-    img: `${import.meta.env.BASE_URL}assets/img/hero-1.jpeg`,
+    img: asset('assets/img/hero-1.jpeg'),
     ctas: [{ label: 'Sobre Nosotros', type: 'primary', href: '#sobre' }]
   },
   {
@@ -18,7 +18,7 @@ const slides = [
     eyebrow: 'Propósito',
     title: 'Claros y medibles',
     text: 'Comunicación, seguimiento, vinculación y escalabilidad.',
-    img: `${import.meta.env.BASE_URL}assets/img/hero-2.jpeg`,
+    img: asset('assets/img/hero-2.jpeg'),
     ctas: [{ label: 'Propósito', type: 'info', href: '#proposito' }]
   },
   {
@@ -26,7 +26,7 @@ const slides = [
     eyebrow: 'Etapas',
     title: 'De formación a acción',
     text: 'Diplomado y semilleros de investigación en territorio.',
-    img: `${import.meta.env.BASE_URL}assets/img/hero-3.jpeg`,
+    img: asset('assets/img/hero-3.jpeg'),
     ctas: [
       { label: 'Ver Etapas', type: 'blue', href: '#roadmap' },
       { label: 'Beneficios', type: 'ghost', href: '#beneficios' }
@@ -37,7 +37,7 @@ const slides = [
     eyebrow: 'Contacto',
     title: '¿Hablamos?',
     text: 'Escríbenos o síguenos en redes para sumarte como aliado.',
-    img: `${import.meta.env.BASE_URL}assets/img/hero-4.jpeg`,
+    img: asset('assets/img/hero-4.jpeg'),
     ctas: [
       {
         label: 'Escribir correo',

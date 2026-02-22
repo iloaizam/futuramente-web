@@ -42,7 +42,7 @@ function Lightbox({ open, onClose, items, index, setIndex }) {
         <motion.img
           key={item.src}
           className="lb-image"
-          src={item.src}
+          src={asset(item.src)}
           alt={item.caption || 'Evidencia'}
           onClick={(e) => e.stopPropagation()}
           initial={{ opacity: 0, scale: 0.98 }}
