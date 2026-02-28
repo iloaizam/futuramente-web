@@ -21,5 +21,8 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^5.1.4",
     "vite": "^7.3.1"
+  },
+   "overrides": {
+    "d3-color": "^3.1.0"
   }
 }
