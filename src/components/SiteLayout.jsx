@@ -6,6 +6,8 @@ import Footer from './Footer.jsx';
 const homeSections = [
   { id: 'sobre', label: 'Sobre Nosotros' },
   { id: 'proposito', label: 'Propósito' },
+  { id: 'cursos', label: 'Cursos', route: '/cursos' },
+  { id: 'diplomados', label: 'Diplomados', route: '/diplomados' },
   { id: 'roadmap', label: 'Etapas' },
   { id: 'beneficios', label: 'Beneficios' },
   { id: 'aliados', label: 'Aliados' },
@@ -66,18 +68,11 @@ export default function SiteLayout() {
                 key={s.id}
                 className="linklike"
                 type="button"
-                onClick={() => goToSection(s.id)}
+                onClick={() => (s.route ? navigate(s.route) : goToSection(s.id))}
               >
                 {s.label}
               </button>
             ))}
-            <button
-              className="linklike"
-              type="button"
-              onClick={() => navigate('/cursos')}
-            >
-              Cursos
-            </button>
           </nav>
 
           <div className="nav-actions">

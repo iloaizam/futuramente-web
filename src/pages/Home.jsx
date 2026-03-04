@@ -252,7 +252,7 @@ export default function Home() {
         <div className="container">
           <Reveal>
             <div style={{ marginBottom: '32px' }}>
-              <h2 className="section-title">Nuestros Programas Académicos</h2>
+              <h2 className="section-title">Nuestros cursos</h2>
             </div>
           </Reveal>
 
@@ -479,6 +479,48 @@ export default function Home() {
                 <img src={asset("assets/img/aliado-3.png")} alt="Universidad Americana" />
               </li>
             </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      <section id="diplomados" className="section section-alt">
+        <div className="container">
+          <Reveal>
+            <div className="card" style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
+              <h2 className="section-title">Nuestros Diplomados</h2>
+              <p style={{ margin: '1rem 0 1.5rem' }}>
+                Ofrecemos diplomados de alta calidad diseñados para profesionales y 
+                estudiantes que buscan profundizar sus conocimientos en áreas clave. 
+                Nuestros programas combinan rigor académico con aplicación práctica, 
+                preparándote para los desafíos del mundo actual.
+              </p>
+              <button 
+                className="btn btn-primary" 
+                type="button" 
+                onClick={() => navigate('/diplomados')}
+              >
+                Conocer diplomados
+              </button>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section id="ludix" className="section">
+        <div className="container">
+          <Reveal>
+            <div className="card" style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
+              <span className="bento-badge" style={{ backgroundColor: 'var(--brand)', display: 'inline-block', marginBottom: '1rem' }}>
+                Próximamente
+              </span>
+              <h2 className="section-title">Ludix 🎮</h2>
+              <p style={{ margin: '1rem 0 0' }}>
+                Ludix es la nueva plataforma educativa de FuturaMente, diseñada para 
+                transformar la experiencia de aprendizaje a través de la gamificación, 
+                el aprendizaje adaptativo y herramientas digitales innovadoras. 
+                Pronto estará disponible para estudiantes y docentes de toda la región.
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>
