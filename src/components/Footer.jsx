@@ -1,5 +1,5 @@
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
-import footerLogo from '../../docs/assets/img/logo-blanco.png';
+const footerLogo = `${import.meta.env.BASE_URL}assets/img/logo-blanco.png`;
 
 export default function Footer({ year }) {
   return (
