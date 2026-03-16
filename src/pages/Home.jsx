@@ -159,11 +159,12 @@ function HeroSlider() {
 
 function Reveal({ children }) {
   const { ref, inView } = useInViewOnce();
+
   return (
     <div ref={ref}>
       <motion.div
         initial={{ opacity: 0, y: 14 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
         transition={{ duration: 0.45, ease: 'easeOut' }}
       >
         {children}
@@ -172,6 +173,7 @@ function Reveal({ children }) {
   );
 }
 
+
 export default function Home() {
   const navigate = useNavigate();
   const deptNames = useMemo(() => departamentos.map((d) => d.nombre), []);
@@ -179,12 +181,15 @@ export default function Home() {
   return (
     <>
       <HeroSlider />
-      <section className="section">
-        <div className="container">
-          <InteractiveMap />
-        </div>
-      </section>
-      <section id="sobre" className="section">
+        <section className="home-section home-section-map">
+          <div className="container">
+            <Reveal>
+              <InteractiveMap />
+            </Reveal>
+          </div>
+        </section>
+
+      <section id="sobre" className="home-section home-section-light">
         <div className="container">
           <Reveal>
             <h2 className="section-title">Sobre Nosotros</h2>
@@ -233,7 +238,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="proposito" className="section section-alt">
+      <section id="proposito" className="home-section home-section-soft-blue">
         <div className="container">
           <Reveal>
             <h2 className="section-title">Propósito</h2>
@@ -248,7 +253,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="roadmap" className="section">
+      <section id="roadmap" className="home-section home-section-light">
         <div className="container">
           <Reveal>
             <h2 className="section-title">Etapas del proyecto</h2>
@@ -293,7 +298,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="beneficios" className="section section-alt">
+      <section id="beneficios" className="home-section home-section-soft-green">
         <div className="container">
           <Reveal>
             <h2 className="section-title">Beneficios de participar</h2>
@@ -341,7 +346,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="aliados" className="section">
+      <section id="aliados" className="home-section home-section-light">
         <div className="container">
           <Reveal>
             <h2 className="section-title">Aliados</h2>
@@ -376,51 +381,31 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contacto" className="section section-alt">
-        <div className="container">
-          <Reveal>
-            <h2 className="section-title">Contacto</h2>
-            <p className="section-sub">¿Quieres saber más sobre el programa, sumarte o colaborar como aliado?</p>
-          </Reveal>
-
-          <Reveal>
-            <div className="card contact-card">
-              <p className="muted" style={{ margin: '0 0 10px' }}>
-                📩 Correo del proyecto:{' '}
-                <a
-                  className="contact-mail"
-                  href="mailto:comunicafut_man@unal.edu.co?subject=Consulta%20sobre%20FuturaMente&body=Hola%2C%20quisiera%20saber%20m%C3%A1s%20sobre%20FuturaMente..."
-                >
-                  comunicafut_man@unal.edu.co
-                </a>
-              </p>
-
-              <div className="social-wrap">
-                <span className="muted">🌐 Redes sociales:</span>
-                <div className="social-links">
-                  <a
-                    className="btn btn-fb"
-                    href="https://www.facebook.com/people/Proyecto-FuturaMente/61553607898327/?mibextid=tPfjzR"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Facebook
-                  </a>
-
-                  <a
-                    className="btn btn-ig"
-                    href="https://www.instagram.com/proyecto_futuramente/?igsh=cmUyYzZ2bjk2aDgy"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Instagram
-                  </a>
-                </div>
-              </div>
-            </div>
-          </Reveal>
+      <section id="contacto" className="home-section home-section-cta">
+  <div className="container">
+    <Reveal>
+      <div className="contact-cta">
+        <div className="contact-cta-content">
+          <span className="eyebrow">Contacto</span>
+          <h2>¿Quieres sumarte, colaborar o saber más?</h2>
+          <p>
+            Escríbenos y conversemos sobre alianzas, actividades, comunidad y
+            oportunidades para construir juntos.
+          </p>
         </div>
-      </section>
+
+        <a
+          className="contact-cta-button"
+          href="mailto:comunicafut_man@unal.edu.co"
+        >
+          comunicafut_man@unal.edu.co
+        </a>
+      </div>
+    </Reveal>
+  </div>
+</section>
+
+
     </>
   );
 }

@@ -14,39 +14,79 @@ const homeSections = [
 
 export default function SiteLayout() {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
 
   const isHome = location.pathname === '/';
-
   const year = useMemo(() => new Date().getFullYear(), []);
 
   useEffect(() => {
-    // Cerrar drawer al cambiar de ruta
     setDrawerOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
-    // Evitar scroll del body cuando el drawer está abierto
     document.documentElement.style.overflow = drawerOpen ? 'hidden' : '';
     return () => {
       document.documentElement.style.overflow = '';
     };
   }, [drawerOpen]);
 
+  useEffect(() => {
+    if (!isHome) {
+      setActiveSection('');
+      return;
+    }
+
+    const elements = homeSections
+      .map((s) => document.getElementById(s.id))
+      .filter(Boolean);
+
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '-20% 0px -55% 0px',
+        threshold: [0.2, 0.35, 0.5, 0.7]
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [isHome, location.pathname]);
+
   const goToSection = (id) => {
     if (isHome) {
       const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setActiveSection(id);
+      }
+      setDrawerOpen(false);
       return;
     }
+
     navigate('/', { state: { scrollTo: id } });
+  };
+
+  const toggleDrawer = () => {
+    setDrawerOpen((prev) => !prev);
   };
 
   return (
     <>
       <header className="site-header">
-        <div className="container nav">
+        <div className="container nav nav-shell">
           <button
             className="brand"
             onClick={() => navigate('/')}
@@ -60,11 +100,11 @@ export default function SiteLayout() {
             />
           </button>
 
-          <nav className="menu" aria-label="Navegación principal">
+          <nav className="menu desktop-menu" aria-label="Navegación principal">
             {homeSections.map((s) => (
               <button
                 key={s.id}
-                className="linklike"
+                className={`linklike nav-link ${activeSection === s.id ? 'is-active' : ''}`}
                 type="button"
                 onClick={() => goToSection(s.id)}
               >
@@ -75,19 +115,10 @@ export default function SiteLayout() {
 
           <div className="nav-actions">
             <button
-              className="btn btn-ghost hide-md"
+              className={`icon-btn hamburger menu-toggle ${drawerOpen ? 'is-open' : ''}`}
               type="button"
-              onClick={() => setDrawerOpen(true)}
-              aria-label="Abrir evidencias"
-            >
-              Evidencias
-            </button>
-
-            <button
-              className="icon-btn hamburger"
-              type="button"
-              onClick={() => setDrawerOpen(true)}
-              aria-label="Abrir menú lateral"
+              onClick={toggleDrawer}
+              aria-label={drawerOpen ? 'Cerrar menú lateral' : 'Abrir menú lateral'}
               aria-expanded={drawerOpen}
             >
               <span />
@@ -96,11 +127,13 @@ export default function SiteLayout() {
         </div>
       </header>
 
-      <Drawer
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-        onGoToSection={goToSection}
-      />
+<Drawer
+  open={drawerOpen}
+  onClose={() => setDrawerOpen(false)}
+  onGoToSection={goToSection}
+  activeSection={activeSection}
+/>
+
 
       <main>
         <Outlet />

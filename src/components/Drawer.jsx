@@ -2,7 +2,16 @@ import React, { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { departamentos } from '../data/departamentos.js';
 
-export default function Drawer({ open, onClose, onGoToSection }) {
+const homeLinks = [
+  { id: 'sobre', label: 'Sobre Nosotros' },
+  { id: 'proposito', label: 'Propósito' },
+  { id: 'roadmap', label: 'Etapas' },
+  { id: 'beneficios', label: 'Beneficios' },
+  { id: 'aliados', label: 'Aliados' },
+  { id: 'contacto', label: 'Contacto' }
+];
+
+export default function Drawer({ open, onClose, onGoToSection, activeSection }) {
   const [deptOpen, setDeptOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -15,46 +24,65 @@ export default function Drawer({ open, onClose, onGoToSection }) {
 
   return (
     <>
-      <aside className="drawer" aria-hidden={!open}>
+      <aside className={`drawer ${open ? 'is-open' : ''}`} aria-hidden={!open}>
         <div className="drawer-head">
-          <h3>Evidencias en Territorio</h3>
-          <button className="icon-btn close" type="button" onClick={onClose} aria-label="Cerrar menú">
-            ×
+          <div className="drawer-head-copy">
+            <span className="drawer-eyebrow">Menú</span>
+            <h3>Explora FuturaMente</h3>
+            <p>Navega por el programa y consulta las evidencias en territorio.</p>
+          </div>
+
+          <button
+            className="drawer-close"
+            type="button"
+            onClick={onClose}
+            aria-label="Cerrar menú"
+          >
+            <span />
           </button>
         </div>
 
         <nav className="drawer-nav" aria-label="Menú lateral">
           <div className="drawer-group">
             <div className="drawer-group-title">Inicio</div>
-            <button className="drawer-link" type="button" onClick={() => closeAnd(() => onGoToSection('sobre'))}>Sobre Nosotros</button>
-            <button className="drawer-link" type="button" onClick={() => closeAnd(() => onGoToSection('proposito'))}>Propósito</button>
-            <button className="drawer-link" type="button" onClick={() => closeAnd(() => onGoToSection('roadmap'))}>Etapas</button>
-            <button className="drawer-link" type="button" onClick={() => closeAnd(() => onGoToSection('beneficios'))}>Beneficios</button>
-            <button className="drawer-link" type="button" onClick={() => closeAnd(() => onGoToSection('aliados'))}>Aliados</button>
-            <button className="drawer-link" type="button" onClick={() => closeAnd(() => onGoToSection('contacto'))}>Contacto</button>
+
+            {homeLinks.map((item) => (
+              <button
+                key={item.id}
+                className={`drawer-link ${activeSection === item.id ? 'is-active' : ''}`}
+                type="button"
+                onClick={() => closeAnd(() => onGoToSection(item.id))}
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
 
           <div className="drawer-group">
             <div className="drawer-group-title">Evidencias</div>
 
-            <div className="drawer-row">
-              <Link className="drawer-link" to="/tableros" onClick={onClose}>Tableros</Link>
-            </div>
+            <Link className="drawer-link" to="/tableros" onClick={onClose}>
+              Tableros
+            </Link>
 
             <div className="drawer-row">
-              <Link className="drawer-link" to="/departamentos" onClick={onClose}>Departamentos</Link>
+              <Link className="drawer-link drawer-link-inline" to="/departamentos" onClick={onClose}>
+                Departamentos
+              </Link>
+
               <button
-                className="drawer-caret"
+                className={`drawer-caret ${deptOpen ? 'is-open' : ''}`}
                 type="button"
-                onClick={() => setDeptOpen(v => !v)}
+                onClick={() => setDeptOpen((v) => !v)}
                 aria-expanded={deptOpen}
                 aria-controls="submenu-dept"
+                aria-label={deptOpen ? 'Cerrar departamentos' : 'Abrir departamentos'}
               >
-                ▾
+                <span />
               </button>
             </div>
 
-            <div className="drawer-sub" id="submenu-dept" hidden={!deptOpen}>
+            <div className={`drawer-sub ${deptOpen ? 'is-open' : ''}`} id="submenu-dept" hidden={!deptOpen}>
               <div className="chips">
                 {deptChips.map((d) => (
                   <button
@@ -66,7 +94,12 @@ export default function Drawer({ open, onClose, onGoToSection }) {
                     {d.nombre}
                   </button>
                 ))}
-                <button className="chip" type="button" onClick={() => closeAnd(() => navigate('/departamentos'))}>
+
+                <button
+                  className="chip"
+                  type="button"
+                  onClick={() => closeAnd(() => navigate('/departamentos'))}
+                >
                   Ver todos
                 </button>
               </div>
@@ -76,7 +109,7 @@ export default function Drawer({ open, onClose, onGoToSection }) {
       </aside>
 
       <div
-        className="drawer-backdrop"
+        className={`drawer-backdrop ${open ? 'is-open' : ''}`}
         hidden={!open}
         onClick={onClose}
         aria-hidden={!open}
