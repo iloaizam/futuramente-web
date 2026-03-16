@@ -111,6 +111,13 @@ export default function SiteLayout() {
                 {s.label}
               </button>
             ))}
+            <button
+              className="linklike"
+              type="button"
+              onClick={() => navigate('/cursos')}
+            >
+              Cursos
+            </button>
           </nav>
 
           <div className="nav-actions">
