@@ -6,7 +6,9 @@ export const territories = [
     color: "#85c536",
     visited: true,
     evidences: [
-      { type: "image", src: "assets/territorio/amazonas/1.jpg", caption: "Actividad en territorio" }
+      { type: "image", src: "assets/img/Foto1-Amazonas.jpeg", caption: "Evidencia 1" },
+      { type: "image", src: "assets/img/Foto2-Amazonas.jpeg", caption: "Evidencia 2" },
+      { type: "image", src: "assets/img/Foto3-Amazonas.jpeg", caption: "Evidencia 3" }
     ]
   },
   {
@@ -14,14 +16,22 @@ export const territories = [
     name: "Arauca",
     color: "#3871c1",
     visited: true,
-    evidences: []
+    evidences: [
+      { type: "image", src: "assets/img/Foto1-Arauca.JPG", caption: "Evidencia 1" },
+      { type: "image", src: "assets/img/Foto2-Arauca.JPG", caption: "Evidencia 2" },
+      { type: "image", src: "assets/img/Foto3-Arauca.JPG", caption: "Evidencia 3" }
+    ] 
   },
   {
     key: "atlantico",
     name: "Atlántico",
     color: "#4ed5db",
-    visited: false,
-    evidences: []
+    visited: true,
+    evidences: [
+      { type: "image", src: "assets/img/Fotos1-barranquilla.jpeg", caption: "Evidencia 1" },
+      { type: "image", src: "assets/img/Fotos2-barranquilla.jpeg", caption: "Evidencia 2" },
+      { type: "image", src: "assets/img/Fotos3-barranquilla.jpeg", caption: "Evidencia 3" }
+    ]
   },
   {
     key: "caldas",
@@ -40,7 +50,11 @@ export const territories = [
     name: "Cundinamarca",
     color: "#ec058e",
     visited: true,
-    evidences: []
+    evidences: [
+      { type: "image", src: "assets/img/Foto1-Cundinamarca.jpg", caption: "Evidencia 1" },
+      { type: "image", src: "assets/img/Foto2-Cundinamarca.jpg", caption: "Evidencia 2" },
+      { type: "image", src: "assets/img/Foto3-Cundinamarca.jpg", caption: "Evidencia 3" }
+    ]
   },
   {
     key: "tolima",
@@ -59,7 +73,11 @@ export const territories = [
     name: "Valle del Cauca",
     color: "#ffbd59",
     visited: true,
-    evidences: []
+    evidences: [
+      { type: "image", src: "assets/img/Foto1-ValleCauca.jpeg", caption: "Evidencia 1 Tolima" },
+      { type: "image", src: "assets/img/Foto2-ValleCauca.jpeg", caption: "Evidencia 2-tolima" },
+      { type: "image", src: "assets/img/Foto3-ValleCauca.jpeg", caption: "Evidencia 2-tolima" }
+    ]
   }
 ];
 
