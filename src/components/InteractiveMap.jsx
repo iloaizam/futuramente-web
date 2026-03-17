@@ -8,7 +8,7 @@ import { asset } from "../utils/assets.js";
 const GEO_URL = asset("maps/co.json");
 const DEFAULT_VIEW = { center: [-74, 4.5], zoom: 1 };
 const isDemo = true;
-const DEMO_DEPTS = ["Caldas", "Tolima"];
+const DEMO_DEPTS = ["Caldas", "Tolima", "Atlántico", "Valle del Cauca", "Arauca", "Cundinamarca", "Amazonas"];
 
 function normalizeDeptNameFromGeo(geo) {
   const p = geo?.properties || {};
