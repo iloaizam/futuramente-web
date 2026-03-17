@@ -48,7 +48,7 @@ export const territories = [
     color: "#98198e",
     visited: true,
     evidences: [      
-      { type: "image", src: "docs/assets/img/Evidencia-1-tolima.JPG", caption: "Evidencia 1 Tolima" },
+      { type: "image", src: "docs/assets/img/IMG_4919-tolima.JPG", caption: "Evidencia 1 Tolima" },
       { type: "image", src: "docs/assets/img/IMG_4830-tolima.jpg", caption: "Evidencia 2-tolima" },
       { type: "image", src: "docs/assets/img/IMG_4893-tolima.jpg", caption: "Evidencia 3-tolima" },
       { type: "image", src: "docs/assets/img/IMG_4876-tolima.JPG", caption: "Evidencia 4-tolima" }
