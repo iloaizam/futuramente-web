@@ -206,7 +206,7 @@ export default function Cursos() {
   return (
     <section className="section">
       <div className="container">
-        <h1 className="section-title">Cursos</h1>
+        <h1 className="section-title">Nuestros Cursos</h1>
         <p className="section-sub">Explora nuestra oferta académica.</p>
 
         <div className="cursos-accordion">

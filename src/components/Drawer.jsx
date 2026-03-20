@@ -9,6 +9,7 @@ const homeLinks = [
   { id: 'beneficios', label: 'Beneficios' },
   { id: 'aliados', label: 'Aliados' },
   { id: 'contacto', label: 'Contacto' }
+
 ];
 
 export default function Drawer({ open, onClose, onGoToSection, activeSection }) {
@@ -81,6 +82,15 @@ export default function Drawer({ open, onClose, onGoToSection, activeSection }) 
                 <span />
               </button>
             </div>
+
+            <div className="drawer-group-title">Formación</div>
+            <Link className="drawer-link" to="/cursos" onClick={onClose}>
+              Cursos
+            </Link>
+
+            <Link className="drawer-link" to="/diplomados" onClick={onClose}>
+              Diplomados
+            </Link>
 
             <div className={`drawer-sub ${deptOpen ? 'is-open' : ''}`} id="submenu-dept" hidden={!deptOpen}>
               <div className="chips">
