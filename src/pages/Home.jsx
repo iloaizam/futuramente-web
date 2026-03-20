@@ -5,6 +5,7 @@ import { departamentos } from '../data/departamentos.js';
 import { asset } from '../utils/assets.js';
 import { useInViewOnce } from '../hooks/useInViewOnce.js';
 import InteractiveMap from "../components/InteractiveMap.jsx";
+import GradientText from "../components/GradientText.jsx";
 
 
 const slides = [
@@ -253,6 +254,182 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="programas" className="section">
+        <div className="container">
+          <Reveal>
+            <div style={{ marginBottom: '32px' }}>
+              <h2 className="section-title">Nuestros cursos</h2>
+            </div>
+          </Reveal>
+
+          <div className="bento-wrapper">
+            <Reveal>
+              <div className="bento-grid">
+                <div 
+                  className="bento-cell cell-1" 
+                  onClick={() => navigate('/cursos')}
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Ver curso Metodología de Aprendizaje"
+                >
+                  <span className="bento-icon">🧬</span>
+                  <div className="bento-info">
+                    <span className="bento-badge" style={{ background: 'var(--brand)' }}>Avanzado</span>
+                    <h3>METODOLOGÍA DE APRENDIZAJE EN CIENCIAS EXACTAS Y NATURALES</h3>
+                  </div>
+                </div>
+                <div 
+                  className="bento-cell cell-2" 
+                  onClick={() => navigate('/cursos')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="bento-icon">🔭</span>
+                  <div className="bento-info">
+                    <span className="bento-badge" style={{ background: 'var(--brand-2)' }}>Intermedio</span>
+                    <h3>Física Divertida</h3>
+                  </div>
+                </div>
+                <div 
+                  className="bento-cell cell-3" 
+                  onClick={() => navigate('/cursos')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="bento-icon">🌿</span>
+                  <div className="bento-info">
+                    <span className="bento-badge" style={{ background: 'var(--ok)' }}>Principiante</span>
+                    <h3>Ecología y Medio Ambiente</h3>
+                  </div>
+                </div>
+                <div 
+                  className="bento-cell cell-4" 
+                  onClick={() => navigate('/cursos')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="bento-icon">💰</span>
+                  <div className="bento-info">
+                    <span className="bento-badge" style={{ background: '#f59e0b' }}>Principiante</span>
+                    <h3>Matemática Financiera Para Niños</h3>
+                  </div>
+                </div>
+                <div 
+                  className="bento-cell cell-5" 
+                  onClick={() => navigate('/cursos')}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <span className="bento-icon">⚗️</span>
+                  <div className="bento-info">
+                    <span className="bento-badge" style={{ background: 'var(--blue)' }}>Intermedio</span>
+                    <h3>Química Divertida</h3>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+              <div className="bento-content">
+              <Reveal>
+                <div style={{ marginBottom: '32px' }}>
+                <span className="eyebrow" style={{ color: 'var(--blue)', fontSize: '1.3rem' }}>FORMACIÓN DE CALIDAD</span>
+                </div>
+                <p style={{ textAlign: 'justify' }}>
+                  Descubre nuestra oferta de cursos diseñados para transformar la educación.
+                </p>
+                <p style={{ textAlign: 'justify' }}>
+                  Desde ciencias naturales hasta educación financiera, cada programa combina teoría, 
+                  práctica y metodologías innovadoras para un aprendizaje significativo.
+                </p>
+                
+                <div className="bento-stat">
+                  <span className="stat-number">5</span>
+                  <span className="stat-label">Cursos disponibles</span>
+                </div>
+
+                <button 
+                  className="btn btn-primary" 
+                  type="button" 
+                  onClick={() => navigate('/cursos')}
+                  style={{ marginTop: '24px' }}
+                >
+                  Explorar cursos
+                </button>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ludix" className="section">
+        <div className="container">
+          <Reveal>
+            <div className="ludix-grid">
+              <div className="ludix-content-col">
+                <div className="ludix-header">
+                  <h2 className="section-title" style={{marginTop: 0, marginBottom: 0}}>Ludix</h2>
+                  <span className="bento-badge" style={{ backgroundColor: 'var(--brand)', display: 'inline-block' }}>
+                    Próximamente
+                  </span>
+                </div>
+                <p>
+                  Transforma el aula en una experiencia que los estudiantes realmente disfrutan. Con Ludix, los colegios puodran gestionar cursos de matemáticas, química, física y más, mientras los estudiantes aprenden jugando con crucigramas, sopas de letras y juegos interactivos. Los profesores siguen el progreso de cada estudiante en tiempo real.
+                </p>
+                <div className="ludix-features">
+                  <div className="ludix-card">
+                    <span className="eyebrow" style={{ color: 'var(--brand)' }}>Visión</span>
+                    <p>Ser la plataforma educativa favorita de colegios y estudiantes, liderando una nueva forma de aprender.</p>
+                  </div>
+                  <div className="ludix-card">
+                    <span className="eyebrow" style={{ color: 'var(--brand)' }}>Propósito</span>
+                    <p>Hacer que aprender sea tan divertido como jugar, sin sacrificar la calidad académica.</p>
+                  </div>
+                </div>
+              </div>
+
+               <div className="ludix-logo-col">
+                <img 
+                  src={asset('assets/img/LUDIX-LOGO.png')} 
+                  alt="Ludix - Plataforma educativa interactiva" 
+                  className="ludix-logo"
+                />
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={35}
+                  showBorder={false}
+                  className="ludix-brand-text"
+                >
+                  Ludix Unal
+                </GradientText>
+              </div>
+
+            </div>
+          </Reveal>
+        </div>
+      </section>
+      <section id="diplomados" className="section section-alt">
+        <div className="container">
+          <Reveal>
+            <div className="card" style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
+              <h2 className="section-title">Nuestros Diplomados</h2>
+              <p style={{ margin: '1rem 0 1.5rem' }}>
+                Ofrecemos diplomados de alta calidad diseñados para profesionales y 
+                estudiantes que buscan profundizar sus conocimientos en áreas clave. 
+                Nuestros programas combinan rigor académico con aplicación práctica, 
+                preparándote para los desafíos del mundo actual.
+              </p>
+              <button 
+                className="btn btn-primary" 
+                type="button" 
+                onClick={() => navigate('/diplomados')}
+              >
+                Conocer diplomados
+              </button>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section id="roadmap" className="home-section home-section-light">
         <div className="container">
           <Reveal>
@@ -405,7 +582,205 @@ export default function Home() {
   </div>
 </section>
 
+<style>{`
+        .bento-wrapper {
+          display: grid;
+          grid-template-columns: 1.5fr 1fr;
+          gap: 60px;
+          align-items: center;
+        }
+        
+        .bento-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(3, auto);
+          gap: 12px;
+          grid-template-areas:
+            "cell1 cell1 cell2"
+            "cell3 cell4 cell2"
+            "cell3 cell4 cell5";
+          max-height: 480px;
+        }
 
+        .bento-cell {
+          position: relative;
+          border-radius: 16px;
+          padding: 20px;
+          cursor: pointer;
+          transition: transform 0.2s ease-out, filter 0.2s;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          overflow: hidden;
+        }
+        .bento-cell:hover {
+          transform: scale(1.02);
+          filter: brightness(1.1);
+          z-index: 1;
+        }
+
+        .cell-1 { grid-area: cell1; background: linear-gradient(135deg, var(--brand), #f472b6); min-height: 200px; }
+        .cell-2 { grid-area: cell2; background: linear-gradient(135deg, var(--brand-2), #a78bfa); min-height: 200px; }
+        .cell-3 { grid-area: cell3; background: linear-gradient(135deg, var(--ok), #34d399); min-height: 200px; }
+        .cell-4 { grid-area: cell4; background: linear-gradient(135deg, #f59e0b, #fbbf24); min-height: 160px; }
+        .cell-5 { grid-area: cell5; background: linear-gradient(135deg, var(--blue), #60a5fa); min-height: 140px; }
+
+        .bento-icon {
+          font-size: 2.5rem;
+          align-self: center;
+          margin-bottom: auto;
+          margin-top: 10px;
+        }
+        
+        .bento-info {
+          z-index: 2;
+        }
+        
+        .bento-info h3 {
+          color: #fff;
+          margin: 8px 0 0;
+          font-size: 0.95rem;
+          font-weight: 700;
+          line-height: 1.2;
+          text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .bento-badge {
+          display: inline-block;
+          font-size: 0.65rem;
+          font-weight: 700;
+          color: #fff;
+          padding: 2px 8px;
+          border-radius: 99px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .bento-stat {
+          margin-top: 20px;
+          display: flex;
+          align-items: baseline;
+          gap: 10px;
+        }
+        .stat-number {
+          font-size: 2.5rem;
+          font-weight: 800;
+          color: var(--brand-2);
+          line-height: 1;
+        }
+        .stat-label {
+          font-weight: 600;
+          color: var(--muted);
+        }
+
+        @media (max-width: 1023px) {
+          .bento-wrapper {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+          .bento-content {
+            order: -1; /* Text on top */
+          }
+        }
+
+        @media (max-width: 767px) {
+          .bento-grid {
+            grid-template-areas: none;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            max-height: none;
+          }
+          .cell-1, .cell-2, .cell-3, .cell-4, .cell-5 {
+            grid-area: auto;
+            min-height: 160px;
+          }
+          /* Make the first cell span full width on mobile for visual balance */
+          .cell-1 {
+            grid-column: span 2;
+          }
+        }
+
+        .ludix-grid {
+          display: grid;
+          grid-template-columns: 0.8fr 1fr;
+          gap: 60px;
+          align-items: center;
+        }
+        .ludix-logo-col {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .ludix-logo {
+          max-width: 320px;
+          height: auto;
+        }
+        .ludix-brand-text {
+          font-size: 3rem; /* text-5xl */
+          font-weight: 700; /* font-bold */
+          margin-bottom: 1rem; /* mb-4 */
+          margin-top: 1rem;
+          line-height: 1;
+        }
+        @media (min-width: 768px) {
+          .ludix-brand-text { font-size: 3.75rem; /* md:text-6xl */ }
+        }
+        @media (min-width: 1024px) {
+          .ludix-brand-text { font-size: 4.5rem; /* lg:text-7xl */ }
+        }
+        .ludix-header {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 1rem;
+        }
+        .ludix-content-col p {
+          text-align: justify;
+          line-height: 1.6;
+        }
+        .ludix-features {
+          margin-top: 2rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+        }
+        .ludix-card {
+          background: var(--surface, #fff);
+          border: 1px solid var(--border, #eee);
+          border-radius: 16px;
+          padding: 1.5rem;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .ludix-card p {
+          margin-top: 0.5rem;
+        }
+
+        @media (max-width: 1023px) {
+          .ludix-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+          .ludix-logo-col {
+            order: -1;
+          }
+          .ludix-logo {
+            max-width: 240px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .ludix-logo {
+            max-width: 200px;
+          }
+          .ludix-content-col { text-align: left; }
+          .ludix-features {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </>
   );
 }
