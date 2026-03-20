@@ -6,6 +6,8 @@ import Footer from './Footer.jsx';
 const homeSections = [
   { id: 'sobre', label: 'Sobre Nosotros' },
   { id: 'proposito', label: 'Propósito' },
+  { id: 'programas', label: 'Cursos', route: '/cursos' },
+  { id: 'diplomados', label: 'Diplomados', route: '/diplomados' },
   { id: 'roadmap', label: 'Etapas' },
   { id: 'beneficios', label: 'Beneficios' },
   { id: 'aliados', label: 'Aliados' },
@@ -104,20 +106,14 @@ export default function SiteLayout() {
             {homeSections.map((s) => (
               <button
                 key={s.id}
-                className={`linklike nav-link ${activeSection === s.id ? 'is-active' : ''}`}
+                className={`linklike nav-link ${activeSection === s.id || (s.route && location.pathname === s.route) ? 'is-active' : ''}`}
                 type="button"
-                onClick={() => goToSection(s.id)}
+                onClick={() => s.route ? navigate(s.route) : goToSection(s.id)}
               >
                 {s.label}
               </button>
             ))}
-            <button
-              className="linklike"
-              type="button"
-              onClick={() => navigate('/cursos')}
-            >
-              Cursos
-            </button>
+      
           </nav>
 
           <div className="nav-actions">
