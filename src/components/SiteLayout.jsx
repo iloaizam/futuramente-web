@@ -6,6 +6,9 @@ import Footer from './Footer.jsx';
 const homeSections = [
   { id: 'sobre', label: 'Sobre Nosotros' },
   { id: 'proposito', label: 'Propósito' },
+  { id: 'programas', label: 'Cursos' },
+  { id: 'diplomados', label: 'Diplomados' },
+  { id: 'nuestra-app', label: 'Nuestra App', route: '/nuestra-app' },
   { id: 'roadmap', label: 'Etapas' },
   { id: 'beneficios', label: 'Beneficios' },
   { id: 'aliados', label: 'Aliados' },

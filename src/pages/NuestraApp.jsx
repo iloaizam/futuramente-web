@@ -76,7 +76,7 @@ const tutorialSteps = [
   {
     number: '02',
     title: 'Ejecuta el archivo .exe como administrador',
-    description: 'Haz click en el boton descargar de todos modos.',
+    description: 'Haz click en el boton Descargar de todos modos.',
   },
   {
     number: '03',
