@@ -8,6 +8,7 @@ const homeSections = [
   { id: 'proposito', label: 'Propósito' },
   { id: 'programas', label: 'Cursos', route: '/cursos' },
   { id: 'diplomados', label: 'Diplomados', route: '/diplomados' },
+  { id: 'nuestra-app', label: 'Nuestra App', route: '/nuestra-app' },
   { id: 'roadmap', label: 'Etapas' },
   { id: 'beneficios', label: 'Beneficios' },
   { id: 'aliados', label: 'Aliados' },

@@ -7,6 +7,7 @@ import DepartamentoDetail from './pages/DepartamentoDetail.jsx';
 import Tableros from './pages/Tableros.jsx';
 import Cursos from './pages/Cursos.jsx';
 import Diplomados from './pages/Diplomados.jsx';
+import NuestraApp from './pages/NuestraApp.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 function ScrollManager() {
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="/tableros" element={<Tableros />} />
           <Route path="/cursos" element={<Cursos />} />
           <Route path="/diplomados" element={<Diplomados />} />
+          <Route path="/nuestra-app" element={<NuestraApp />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
