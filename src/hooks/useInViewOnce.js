@@ -5,18 +5,23 @@ export function useInViewOnce(options = { rootMargin: '0px 0px -15% 0px', thresh
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
+    if (inView) return;
+
     if (!ref.current) return;
 
     const el = ref.current;
 
     const obs = new IntersectionObserver(([entry]) => {
-      setInView(entry.isIntersecting);
+      if (entry.isIntersecting) {
+        setInView(true);
+        obs.disconnect();
+      }
     }, options);
 
     obs.observe(el);
 
     return () => obs.disconnect();
-  }, [options]);
+  }, [options, inView]);
 
   return { ref, inView };
 }

@@ -8,6 +8,7 @@ import Tableros from './pages/Tableros.jsx';
 import Cursos from './pages/Cursos.jsx';
 import Diplomados from './pages/Diplomados.jsx';
 import NotFound from './pages/NotFound.jsx';
+import NuestraApp from './pages/NuestraApp.jsx';
 
 function ScrollManager() {
   const location = useLocation();
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/cursos" element={<Cursos />} />
           <Route path="/diplomados" element={<Diplomados />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/nuestra-app" element={<NuestraApp />} />
         </Route>
       </Routes>
     </HashRouter>
