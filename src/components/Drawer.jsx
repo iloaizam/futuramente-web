@@ -92,6 +92,10 @@ export default function Drawer({ open, onClose, onGoToSection, activeSection }) 
               Diplomados
             </Link>
 
+            <Link className="drawer-link" to="/nuestra-app" onClick={onClose}>
+              Nuestra App
+            </Link>
+
             <div className={`drawer-sub ${deptOpen ? 'is-open' : ''}`} id="submenu-dept" hidden={!deptOpen}>
               <div className="chips">
                 {deptChips.map((d) => (

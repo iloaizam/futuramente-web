@@ -430,6 +430,76 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="nuestra-app-promo" className="home-section">
+        <div className="container">
+          <Reveal>
+            <h2 className="section-title">Nuestra App: FuturaMente</h2>
+            <p className="section-sub">
+              Lleva el aprendizaje al siguiente nivel con nuestras herramientas y recursos educativos, disponibles incluso sin conexión a internet.
+            </p>
+          </Reveal>
+          <div className="grid cols-2">
+            <Reveal>
+              <div className="card">
+                <h3 style={{ marginTop: 0 }}>Herramientas Educativas</h3>
+                <p className="muted">
+                  Un conjunto de aplicaciones interactivas para explorar conceptos de ciencia y tecnología de forma práctica y divertida.
+                </p>
+                <ul className="benefit-list" style={{ gridTemplateColumns: '1fr', gap: '10px' }}>
+                  <li>
+                    <span className="tick" aria-hidden="true">✓</span>
+                    <div><strong>Herramientas interactivas</strong> para experimentar y aprender.</div>
+                  </li>
+                  <li>
+                    <span className="tick" aria-hidden="true">✓</span>
+                    <div><strong>Juegos pedagógicos</strong> que refuerzan el conocimiento.</div>
+                  </li>
+                  <li>
+                    <span className="tick" aria-hidden="true">✓</span>
+                    <div><strong>Videos tutoriales</strong> para sacar el máximo provecho a cada herramienta.</div>
+                  </li>
+                </ul>
+              </div>
+            </Reveal>
+            <Reveal>
+              <div className="card">
+                <h3 style={{ marginTop: 0 }}>Recursos Educativos Futuramente</h3>
+                <p className="muted">
+                  Una biblioteca de materiales didácticos diseñados para apoyar a los docentes y enriquecer la experiencia en el aula.
+                </p>
+                <ul className="benefit-list" style={{ gridTemplateColumns: '1fr', gap: '10px' }}>
+                  <li>
+                    <span className="tick" aria-hidden="true">✓</span>
+                    <div><strong>Contenido pedagógico</strong> alineado con el currículo.</div>
+                  </li>
+                  <li>
+                    <span className="tick" aria-hidden="true">✓</span>
+                    <div><strong>Recursos didácticos</strong> accesibles sin necesidad de conexión a internet.</div>
+                  </li>
+                  <li>
+                    <span className="tick" aria-hidden="true">✓</span>
+                    <div><strong>Material instructivo</strong> para guiar a los docentes en su implementación.</div>
+                  </li>
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal>
+            <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={() => navigate('/nuestra-app', { state: null })}
+              >
+                Descubre y descarga la App
+              </button>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      
+
       <section id="roadmap" className="home-section home-section-light">
         <div className="container">
           <Reveal>
@@ -777,6 +847,27 @@ export default function Home() {
           }
           .ludix-content-col { text-align: left; }
           .ludix-features {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        /* --- Ajustes para tarjetas de la App --- */
+        #nuestra-app-promo .grid.cols-2 {
+          grid-template-columns: 1fr 1fr;
+        }
+        #nuestra-app-promo .grid.cols-2 > div > div { /* motion.div dentro de Reveal */
+          height: 100%;
+        }
+        #nuestra-app-promo .card {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+        #nuestra-app-promo .card p.muted {
+          flex-grow: 1;
+        }
+        @media (max-width: 900px) {
+          #nuestra-app-promo .grid.cols-2 {
             grid-template-columns: 1fr;
           }
         }
