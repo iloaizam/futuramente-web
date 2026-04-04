@@ -40,7 +40,15 @@ function normalizeBaseUrl(baseUrl) {
   return baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
 }
 
+function canUseLocalVideoFallback() {
+  if (typeof window === 'undefined') return false;
+
+  const host = window.location.hostname;
+  return host === 'localhost' || host === '127.0.0.1';
+}
+
 function getLocalVideoUrl(slug, file) {
+  if (!canUseLocalVideoFallback()) return null;
   return `/local-evidencias/${slug}/videos/${encodeURIComponent(file)}`;
 }
 

@@ -3,7 +3,7 @@ import { resolveVideoUrl } from './externalVideoStorage.js';
 const coverPath = (file) => `/assets/img/${file}`;
 
 const mediaPath = (slug, kind, file) => `/assets/evidencias/${slug}/${kind}/${file}`;
-const videoPath = (slug, file) => resolveVideoUrl(slug, file) || mediaPath(slug, 'videos', file);
+const videoPath = (slug, file) => resolveVideoUrl(slug, file);
 
 const image = (slug, file, caption) => ({
   type: 'image',
@@ -11,12 +11,17 @@ const image = (slug, file, caption) => ({
   caption,
 });
 
-const video = (slug, file, caption, poster) => ({
-  type: 'video',
-  src: videoPath(slug, file),
-  caption,
-  ...(poster ? { poster } : {}),
-});
+const video = (slug, file, caption, poster) => {
+  const src = videoPath(slug, file);
+  if (!src) return null;
+
+  return {
+    type: 'video',
+    src,
+    caption,
+    ...(poster ? { poster } : {}),
+  };
+};
 
 function interleaveMedia(images, videos) {
   if (!videos.length) return images;
@@ -97,7 +102,7 @@ const amazonasVideoEvidences = amazonasVideoFiles.map((file, index) =>
     undefined,
     mediaPath('amazonas', 'imagenes', amazonasVideoPosters[index])
   )
-);
+).filter(Boolean);
 
 const amazonasEvidences = interleaveMedia(amazonasImageEvidences, amazonasVideoEvidences);
 
@@ -158,7 +163,7 @@ const atlanticoVideoEvidences = atlanticoVideoFiles.map((file, index) =>
     undefined,
     mediaPath('atlantico', 'imagenes', atlanticoVideoPosters[index])
   )
-);
+).filter(Boolean);
 
 const atlanticoEvidences = interleaveMedia(atlanticoImageEvidences, atlanticoVideoEvidences);
 
@@ -218,7 +223,7 @@ const valleVideoEvidences = valleVideoFiles.map((file, index) =>
     undefined,
     mediaPath('valle-del-cauca', 'imagenes', valleVideoPosters[index])
   )
-);
+).filter(Boolean);
 
 const valleEvidences = interleaveMedia(valleImageEvidences, valleVideoEvidences);
 
@@ -263,7 +268,7 @@ const caldasVideoEvidences = caldasVideoFiles.map((file, index) =>
     undefined,
     mediaPath('caldas', 'imagenes', caldasVideoPosters[index])
   )
-);
+).filter(Boolean);
 
 const caldasEvidences = interleaveMedia(caldasImageEvidences, caldasVideoEvidences);
 
@@ -342,7 +347,7 @@ const araucaVideoEvidences = araucaVideoFiles.map((file, index) =>
     undefined,
     mediaPath('arauca', 'imagenes', araucaVideoPosters[index])
   )
-);
+).filter(Boolean);
 
 const araucaEvidences = interleaveMedia(araucaImageEvidences, araucaVideoEvidences);
 
@@ -425,7 +430,7 @@ const cundinamarcaVideoEvidences = cundinamarcaVideoFiles.map((file, index) =>
     undefined,
     mediaPath('cundinamarca', 'imagenes', cundinamarcaVideoPosters[index])
   )
-);
+).filter(Boolean);
 
 const cundinamarcaEvidences = interleaveMedia(cundinamarcaImageEvidences, cundinamarcaVideoEvidences);
 
@@ -512,7 +517,7 @@ const tolimaVideoEvidences = tolimaVideoFiles.map((file, index) =>
     undefined,
     mediaPath('tolima', 'imagenes', tolimaVideoPosters[index])
   )
-);
+).filter(Boolean);
 
 const tolimaEvidences = interleaveMedia(tolimaImageEvidences, tolimaVideoEvidences);
 
