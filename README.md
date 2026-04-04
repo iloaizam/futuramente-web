@@ -28,7 +28,7 @@ Este proyecto usa **HashRouter**, así que funciona bien en GitHub Pages sin con
 
 > Nota: en `vite.config.js` dejamos `base: './'` para que funcione en subcarpetas.
 
-## Evidencias (fotos)
+## Evidencias
 En el sitio original, las fotos se referencian como:
 
 ```
@@ -42,3 +42,13 @@ Ejemplo:
 
 Luego puedes ampliar el listado por departamento en:
 - `src/data/departamentos.js`
+
+Los videos ahora se deben servir desde storage externo para no romper los limites de GitHub.
+
+- Configuracion de URLs externas: `src/data/externalVideoStorage.js`
+- Catalogo por departamento: `src/data/territories.js`
+- Fotos locales: `public/assets/evidencias/<departamento>/imagenes/`
+- Copia local de videos para desarrollo: `local-evidencias/<departamento>/videos/`
+
+Si conservas los nombres originales de los videos en el storage, puedes definir una sola `baseUrl` por departamento.
+Si cambias el nombre del archivo remoto, mapea cada video en `files`.
