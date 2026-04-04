@@ -182,7 +182,7 @@ export default function Home() {
   return (
     <>
       <HeroSlider />
-        <section id="mapa-territorios" className="home-section home-section-map">
+        <section className="home-section home-section-map">
           <div className="container">
             <Reveal>
               <InteractiveMap />
@@ -229,7 +229,7 @@ export default function Home() {
                       {n}
                     </span>
                   ))}
-                  <button className="chip chip-cta" type="button" onClick={() => scrollToId('mapa-territorios')}>
+                  <button className="chip chip-cta" type="button" onClick={() => navigate('/departamentos')}>
                     Ver evidencias
                   </button>
                 </div>

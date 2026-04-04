@@ -333,32 +333,14 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 
 /* Gallery */
 .gallery-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:16px; }
-.gallery-grid.gallery-masonry{ display:block; column-count:3; column-gap:16px; }
 .gallery-btn{ padding:0; border:0; background:transparent; cursor:pointer; text-align:left; }
 .gallery-item{ border:1px solid var(--border); border-radius: var(--radius); overflow:hidden; background: rgba(255,255,255,.85); box-shadow: var(--shadow); }
-.gallery-card{ display:inline-block; width:100%; margin:0 0 16px; break-inside: avoid; }
-.gallery-media{ position:relative; background: #eef3f8; }
-.gallery-media img,
-.gallery-media video,
-.gallery-media-asset{ width:100%; height:auto; display:block; }
-.gallery-pill{
-  position:absolute;
-  top:12px;
-  right:12px;
-  border-radius:999px;
-  background: rgba(11,15,20,.72);
-  color:#fff;
-  padding:.3rem .65rem;
-  font-size:.74rem;
-  font-weight:700;
-  letter-spacing:.02em;
-}
+.gallery-item img{ width:100%; height:auto; display:block; }
 .gallery-caption{ padding:10px 12px; color: var(--muted); font-size:.92rem; }
 
 /* Lightbox */
 .lightbox{ position:fixed; inset:0; background: rgba(0,0,0,.86); display:flex; align-items:center; justify-content:center; z-index: 100; }
 .lb-image{ max-width: min(92vw, 1600px); max-height: 82vh; border-radius: 14px; box-shadow: 0 12px 36px rgba(0,0,0,.55); }
-.lb-video{ max-width: min(92vw, 1600px); max-height: 82vh; border-radius: 14px; box-shadow: 0 12px 36px rgba(0,0,0,.55); background:#000; }
 .lb-caption{ position:absolute; left:50%; transform: translateX(-50%); bottom: 24px; color:#fff; background: rgba(0,0,0,.35); padding:8px 12px; border-radius: 12px; max-width:min(92vw, 1200px); }
 .lb-btn{ position:absolute; top:50%; transform: translateY(-50%); width:44px; height:44px; border-radius:999px; border:1px solid rgba(255,255,255,.25); background: rgba(0,0,0,.25); color:#fff; display:grid; place-items:center; cursor:pointer; font-size:26px; }
 .lb-close{ top: 26px; right: 26px; transform:none; font-size:30px; }
@@ -379,13 +361,6 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 .contact-mail{ color: var(--blue); font-weight:750; }
 
 .page-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:18px; flex-wrap:wrap; margin-bottom: 12px; }
-.detail-nav-panel{
-  margin-top: 28px;
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-}
-.detail-nav-button{ min-width: min(100%, 360px); }
 
 .site-footer{ padding: 34px 0; border-top: 1px solid rgba(231,237,244,.95); }
 .footer-row{ display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; color: var(--muted); }
@@ -397,7 +372,6 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
   .stages{ grid-template-columns: 1fr; }
   .logos{ grid-template-columns: 1fr; }
   .grid.cols-2{ grid-template-columns: 1fr; }
-  .gallery-grid.gallery-masonry{ column-count:2; }
 }
 
 @media (max-width: 420px){
@@ -2000,12 +1974,6 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
   object-fit: cover;
   display: block;
 }
-.territory-tile video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
 /* patrón tipo pinterest */
 .tile-1 {
@@ -2096,10 +2064,6 @@ code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liber
 
   .territory-masonry {
     grid-auto-rows: 100px;
-  }
-
-  .gallery-grid.gallery-masonry {
-    column-count: 1;
   }
 }
 
