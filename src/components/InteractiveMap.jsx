@@ -15,7 +15,7 @@ const DEFAULT_VIEW = { center: MAP_CENTER, zoom: 1 };
 const MIN_FOCUS_ZOOM = 2.15;
 const MAX_FOCUS_ZOOM = 4.35;
 const isDemo = true;
-const DEMO_DEPTS = ["Caldas", "Tolima", "Atlántico", "Valle del Cauca", "Arauca", "Cundinamarca", "Amazonas"];
+const DEMO_DEPTS = ['Caldas', 'Tolima', 'Atlántico', 'Valle del Cauca', 'Arauca', 'Cundinamarca', 'Amazonas'];
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -31,12 +31,12 @@ function normalizeDeptNameFromGeo(geo) {
     p.DEPARTAMEN ||
     p.departamento ||
     p.DEPTO ||
-    ""
+    ''
   );
 }
 
 function byName(name) {
-  const n = (name || "").trim().toLowerCase();
+  const n = (name || '').trim().toLowerCase();
   return territories.find((t) => t.name.toLowerCase() === n);
 }
 
@@ -74,9 +74,7 @@ export default function InteractiveMap() {
 
   const [selected, setSelected] = useState(null);
   const [view, setView] = useState(DEFAULT_VIEW);
-  const [hoverName, setHoverName] = useState("");
-
-  const isDemo = true;
+  const [hoverName, setHoverName] = useState('');
 
   const pick = (geo, deptName) => {
     const name = (deptName || "").trim();
@@ -84,10 +82,10 @@ export default function InteractiveMap() {
       territoryByName.get(name.toLowerCase()) ||
       byName(name) || {
         name,
-        slug: name.toLowerCase().replace(/\s+/g, "-"),
-        color: "#cfd8dc",
+        slug: name.toLowerCase().replace(/\s+/g, '-'),
+        color: '#cfd8dc',
         visited: false,
-        evidences: []
+        evidences: [],
       };
 
     setSelected(t);
@@ -99,11 +97,13 @@ export default function InteractiveMap() {
     setView(DEFAULT_VIEW);
   };
 
-  const previewItems = (selected?.evidences || []).slice(0, 4);
+  const previewSource = selected?.previewEvidences?.length ? selected.previewEvidences : selected?.evidences || [];
+  const previewItems = previewSource.slice(0, 4);
 
   const goToDetail = () => {
-    if (!selected?.slug) return;
-    navigate(`/departamentos/${selected.slug}`);
+    const targetSlug = selected?.slug || selected?.key;
+    if (!targetSlug) return;
+    navigate(`/departamentos/${targetSlug}`);
   };
 
   return (
@@ -156,7 +156,7 @@ export default function InteractiveMap() {
 
                       const demoAllowed = !isDemo || DEMO_DEPTS.includes(deptName);
                       const visited = demoAllowed && Boolean(t?.visited);
-                      const fill = visited ? t.color : "#e8edf2";
+                      const fill = visited ? t.color : '#e8edf2';
                       const isSelected = selected?.name?.toLowerCase() === deptName.toLowerCase();
 
                       return (
@@ -171,30 +171,30 @@ export default function InteractiveMap() {
                           style={{
                             default: {
                               fill,
-                              stroke: "#ffffff",
+                              stroke: '#ffffff',
                               strokeWidth: isSelected ? 2 : 1,
-                              outline: "none",
-                              cursor: "pointer",
+                              outline: 'none',
+                              cursor: 'pointer',
                               filter: isSelected
-                                ? "drop-shadow(0px 16px 26px rgba(0,0,0,.18))"
+                                ? 'drop-shadow(0px 16px 26px rgba(0,0,0,.18))'
                                 : visited
-                                  ? "drop-shadow(0px 10px 18px rgba(0,0,0,.12))"
-                                  : "none",
-                              transition: "all .2s ease",
+                                  ? 'drop-shadow(0px 10px 18px rgba(0,0,0,.12))'
+                                  : 'none',
+                              transition: 'all .2s ease',
                             },
                             hover: {
-                              fill: visited ? t.color : "#e1e7ec",
-                              stroke: "#fff",
+                              fill: visited ? t.color : '#e1e7ec',
+                              stroke: '#fff',
                               strokeWidth: 2,
-                              outline: "none",
-                              cursor: "pointer"
+                              outline: 'none',
+                              cursor: 'pointer',
                             },
-                            
+
                             pressed: {
                               fill,
-                              stroke: "#ffffff",
+                              stroke: '#ffffff',
                               strokeWidth: 2,
-                              outline: "none",
+                              outline: 'none',
                             },
                           }}
                         />
@@ -220,7 +220,7 @@ export default function InteractiveMap() {
                 transition={{ duration: 0.25 }}
               >
                 <span className="territory-preview-kicker">Vista previa</span>
-                <h3><h3>Vista previa del territorio</h3></h3>
+                <h3>Vista previa del territorio</h3>
                 <p>
                   Elige un territorio en el mapa para ver una galería visual rápida
                   del programa.
@@ -253,7 +253,7 @@ export default function InteractiveMap() {
 
                   <span
                     className="territory-preview-dot"
-                    style={{ background: selected.color || "#cfd8dc" }}
+                    style={{ background: selected.color || '#cfd8dc' }}
                   />
                 </div>
 
@@ -266,14 +266,27 @@ export default function InteractiveMap() {
                         className={`territory-tile tile-${i + 1}`}
                         onClick={goToDetail}
                       >
-                        <img
-                          src={asset(ev.src)}
-                          alt={ev.caption || `Evidencia ${i + 1}`}
-                          loading="lazy"
-                        />
+                        {ev.type === 'video' ? (
+                          <video
+                            src={asset(ev.src)}
+                            poster={ev.poster ? asset(ev.poster) : undefined}
+                            aria-label={ev.caption || `Video ${i + 1}`}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            preload="auto"
+                          />
+                        ) : (
+                          <img
+                            src={asset(ev.src)}
+                            alt={ev.caption || `Evidencia ${i + 1}`}
+                            loading="lazy"
+                          />
+                        )}
 
                         <div className="territory-tile-overlay">
-                          <span>Ver más</span>
+                          <span>{ev.type === 'video' ? 'Ver video' : 'Ver más'}</span>
                         </div>
                       </button>
                     ))}
