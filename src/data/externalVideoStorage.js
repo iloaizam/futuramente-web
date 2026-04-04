@@ -41,7 +41,6 @@ function normalizeBaseUrl(baseUrl) {
 }
 
 function getLocalVideoUrl(slug, file) {
-  if (!import.meta.env.DEV) return null;
   return `/local-evidencias/${slug}/videos/${encodeURIComponent(file)}`;
 }
 
