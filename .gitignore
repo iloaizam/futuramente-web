@@ -7,3 +7,5 @@ node_modules
 .vercel
 assets/downloads/*.exe
 public/assets/downloads/*.exe
+public/assets/evidencias/*/videos/*
+local-evidencias/
