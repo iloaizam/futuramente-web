@@ -67,13 +67,8 @@ export default function Drawer({ open, onClose, onGoToSection, activeSection }) 
             </Link>
 
             <div className="drawer-row">
-              <Link
-                className="drawer-link drawer-link-inline"
-                to="/"
-                state={{ scrollTo: 'mapa-territorios' }}
-                onClick={onClose}
-              >
-                Mapa interactivo
+              <Link className="drawer-link drawer-link-inline" to="/departamentos" onClick={onClose}>
+                Departamentos
               </Link>
 
               <button
@@ -117,9 +112,9 @@ export default function Drawer({ open, onClose, onGoToSection, activeSection }) 
                 <button
                   className="chip"
                   type="button"
-                  onClick={() => closeAnd(() => navigate('/', { state: { scrollTo: 'mapa-territorios' } }))}
+                  onClick={() => closeAnd(() => navigate('/departamentos'))}
                 >
-                  Ver mapa
+                  Ver todos
                 </button>
               </div>
             </div>
