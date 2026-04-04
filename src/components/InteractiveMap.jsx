@@ -1,14 +1,25 @@
-import React, { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
-import { motion, AnimatePresence } from 'framer-motion';
-import { territories } from '../data/territories.js';
-import { asset } from '../utils/assets.js';
+import React, { useMemo, useState } from "react";
+import { geoCentroid, geoMercator, geoPath } from "d3-geo";
+import { useNavigate } from "react-router-dom";
+import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
+import { motion, AnimatePresence } from "framer-motion";
+import { territories } from "../data/territories.js";
+import { asset } from "../utils/assets.js";
 
-const GEO_URL = asset('maps/co.json');
-const DEFAULT_VIEW = { center: [-74, 4.5], zoom: 1 };
+const GEO_URL = asset("maps/co.json");
+const MAP_CENTER = [-74, 4.5];
+const MAP_SCALE = 3300;
+const MAP_WIDTH = 1400;
+const MAP_HEIGHT = 1000;
+const DEFAULT_VIEW = { center: MAP_CENTER, zoom: 1 };
+const MIN_FOCUS_ZOOM = 2.15;
+const MAX_FOCUS_ZOOM = 4.35;
 const isDemo = true;
 const DEMO_DEPTS = ['Caldas', 'Tolima', 'Atlántico', 'Valle del Cauca', 'Arauca', 'Cundinamarca', 'Amazonas'];
+
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
 
 function normalizeDeptNameFromGeo(geo) {
   const p = geo?.properties || {};
@@ -29,6 +40,29 @@ function byName(name) {
   return territories.find((t) => t.name.toLowerCase() === n);
 }
 
+function getViewForDepartment(geo) {
+  if (!geo) return DEFAULT_VIEW;
+
+  const projection = geoMercator()
+    .center(MAP_CENTER)
+    .scale(MAP_SCALE)
+    .translate([MAP_WIDTH / 2, MAP_HEIGHT / 2]);
+  const path = geoPath(projection);
+  const bounds = path.bounds(geo);
+  const featureWidth = Math.max(bounds[1][0] - bounds[0][0], 1);
+  const featureHeight = Math.max(bounds[1][1] - bounds[0][1], 1);
+  const zoom = clamp(
+    Math.min((MAP_WIDTH * 0.55) / featureWidth, (MAP_HEIGHT * 0.55) / featureHeight),
+    MIN_FOCUS_ZOOM,
+    MAX_FOCUS_ZOOM
+  );
+
+  return {
+    center: geoCentroid(geo),
+    zoom,
+  };
+}
+
 export default function InteractiveMap() {
   const navigate = useNavigate();
 
@@ -42,8 +76,8 @@ export default function InteractiveMap() {
   const [view, setView] = useState(DEFAULT_VIEW);
   const [hoverName, setHoverName] = useState('');
 
-  const pick = (deptName) => {
-    const name = (deptName || '').trim();
+  const pick = (geo, deptName) => {
+    const name = (deptName || "").trim();
     const t =
       territoryByName.get(name.toLowerCase()) ||
       byName(name) || {
@@ -55,7 +89,7 @@ export default function InteractiveMap() {
       };
 
     setSelected(t);
-    setView((v) => ({ ...v, zoom: 2.15 }));
+    setView(getViewForDepartment(geo));
   };
 
   const reset = () => {
@@ -99,15 +133,16 @@ export default function InteractiveMap() {
 
             <ComposableMap
               projection="geoMercator"
-              projectionConfig={{ center: [-74, 4.5], scale: 3300 }}
-              width={1400}
-              height={1000}
-              style={{ width: '100%', height: '100%' }}
+              projectionConfig={{ center: MAP_CENTER, scale: MAP_SCALE }}
+              width={MAP_WIDTH}
+              height={MAP_HEIGHT}
+              style={{ width: "100%", height: "100%" }}
             >
               <ZoomableGroup
                 center={view.center}
                 zoom={view.zoom}
                 onMoveEnd={(p) => setView({ center: p.coordinates, zoom: p.zoom })}
+                filterZoomEvent={(event) => event?.type === "wheel"}
                 translateExtent={[
                   [-200, -200],
                   [1100, 950],
@@ -129,8 +164,10 @@ export default function InteractiveMap() {
                           key={geo.rsmKey}
                           geography={geo}
                           onMouseEnter={() => setHoverName(deptName)}
-                          onMouseLeave={() => setHoverName('')}
-                          onClick={() => pick(deptName)}
+                          onMouseLeave={() => setHoverName("")}
+                          onMouseDown={(event) => event.stopPropagation()}
+                          onTouchStart={(event) => event.stopPropagation()}
+                          onClick={() => pick(geo, deptName)}
                           style={{
                             default: {
                               fill,
