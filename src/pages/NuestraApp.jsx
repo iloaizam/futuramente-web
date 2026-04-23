@@ -133,7 +133,7 @@ export default function NuestraApp() {
               <h2>Descarga nuestras Herramientas Educativas</h2>
               <p>Descarga el instalador de la Herramienta.</p>
               <a
-                href="https://drive.google.com/uc?export=download&id=1q9sUuUoGj7QDsaNUEOIytgk94VvEXnPv" target="_blank" rel="noopener"
+                href="https://drive.google.com/uc?export=download&id=11yAWgK-cLS0vUK0M1YmKP0yRLmXM4sVk" target="_blank" rel="noopener"
                 className="btn btn-primary"
               >
                 Descargar instalador
@@ -150,7 +150,7 @@ export default function NuestraApp() {
               <h2>Descarga nuestros Recursos Educativos</h2>
               <p>Descarga el instalador de los Recursos Educativos Futuramente-web.</p>
               <a
-                href="https://drive.google.com/uc?export=download&id=1DL3pQ1DcL73gltQirvYcnFa3MdPNEyuU" target="_blank" rel="noopener"
+                href="https://drive.google.com/uc?export=download&id=1K_ltPJ08L24k4ibI_MLqUcg6aHz9BGJJ" target="_blank" rel="noopener"
                 className="btn btn-primary"
               >
                 Descargar instalador
