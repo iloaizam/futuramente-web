@@ -1,7 +1,31 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+
 const footerLogo = `${import.meta.env.BASE_URL}assets/img/logo-blanco.png`;
 
+const navigationLinks = [
+  { id: 'inicio', label: 'Inicio' },
+  { id: 'sobre', label: 'Sobre nosotros' },
+  { id: 'proposito', label: 'Propósito' },
+  { id: 'roadmap', label: 'Etapas' },
+  { id: 'beneficios', label: 'Beneficios' },
+  { id: 'aliados', label: 'Aliados' },
+  { id: 'contacto', label: 'Contacto' },
+];
+
 export default function Footer({ year }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const goToSection = (id) => {
+    if (location.pathname === '/') {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
+    navigate('/', { state: { scrollTo: id } });
+  };
+
   return (
     <footer className="site-footer site-footer-premium">
       <div className="container footer-main">
@@ -20,13 +44,16 @@ export default function Footer({ year }) {
 
         <div className="footer-column">
           <h4>Navegación</h4>
-          <a href="#inicio">Inicio</a>
-          <a href="#sobre-nosotros">Sobre nosotros</a>
-          <a href="#proposito">Propósito</a>
-          <a href="#etapas">Etapas</a>
-          <a href="#beneficios">Beneficios</a>
-          <a href="#aliados">Aliados</a>
-          <a href="#contacto">Contacto</a>
+          {navigationLinks.map((link) => (
+            <button
+              key={link.id}
+              className="footer-nav-link"
+              type="button"
+              onClick={() => goToSection(link.id)}
+            >
+              {link.label}
+            </button>
+          ))}
         </div>
 
         <div className="footer-column">
@@ -67,10 +94,7 @@ export default function Footer({ year }) {
 
       <div className="container footer-bottom">
         <span>© {year} FuturaMente. Todos los derechos reservados.</span>
-
-        
       </div>
     </footer>
   );
 }
-
